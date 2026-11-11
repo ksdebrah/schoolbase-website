@@ -70,8 +70,8 @@ p{margin:0}
 .frame{border-radius:12px;background:#fff;box-shadow:0 1px 0 rgba(20,35,59,.04),0 24px 60px -18px rgba(20,35,59,.35),0 0 0 1px rgba(20,35,59,.08);overflow:hidden}
 .frame .bar{height:26px;background:#f2f5f9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
 .frame .bar i{width:9px;height:9px;border-radius:50%;background:#d4dbe6}
-.phone{position:absolute;right:-8px;bottom:22px;width:31%;border-radius:28px;background:#0f1a2c;padding:8px;box-shadow:0 30px 60px -20px rgba(20,35,59,.55)}
-.phone img{border-radius:21px}
+.phone{position:absolute;right:-8px;bottom:22px;width:31%;border-radius:26px;background:#fff;padding:6px;box-shadow:0 0 0 1px rgba(20,35,59,.10),0 30px 60px -22px rgba(20,35,59,.45)}
+.phone img{border-radius:20px;border:1px solid var(--line)}
 @media (prefers-reduced-motion:no-preference){
   .shots{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .1s}
   .phone{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .3s}
@@ -105,7 +105,7 @@ section{scroll-margin-top:80px}
 .ticks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
 .ticks li{position:relative;padding-left:30px;font-size:16.5px;line-height:1.5}
 .ticks li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--wash-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232b4f80' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
-.phone-pair{display:flex;gap:20px;justify-content:center}
+.phone-pair{display:flex;gap:20px;justify-content:center;align-items:flex-start}
 .phone-pair .phone{position:static;width:min(46%,260px);animation:none}
 .phone-pair .phone:nth-child(2){margin-top:48px}
 
