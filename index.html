@@ -50,8 +50,8 @@ p{margin:0}
 .nav a{color:var(--ink-2);text-decoration:none;font-size:15px;font-weight:550;padding:8px 12px;border-radius:999px}
 @media (hover:hover) and (pointer:fine){.nav a:hover{color:var(--ink);background:var(--wash)}}
 .top .btn{min-height:42px;padding:0 18px;font-size:15px}
-.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center}
-.menu-btn svg{width:22px;height:22px}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);align-items:center;justify-content:center;-webkit-appearance:none;appearance:none;flex:none;cursor:pointer}
+.menu-btn svg{width:22px;height:22px;display:block;stroke:var(--ink)}
 
 /* hero: an exercise book page */
 .hero{position:relative;overflow:hidden;padding:72px 0 0;
@@ -192,7 +192,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 @media (max-width:1060px){.contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.contact .photo{display:none}}
 @media (max-width:860px){.head-split{grid-template-columns:1fr;gap:28px}.band img{aspect-ratio:16/9}.inset{left:auto;right:-6px;bottom:-24px;width:42%}.contact{grid-template-columns:1fr}}
 
-.signin{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px}
+.signin{white-space:nowrap;flex:none;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px}
 @media (hover:hover) and (pointer:fine){.signin:hover{background:var(--wash)}}
 .nav-signin{display:none}
 /* responsive */
@@ -224,6 +224,10 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   .price-main,.calc{padding:36px 28px}
 }
 @media (max-width:560px){
+  .top .wrap{gap:10px}
+  .brand{font-size:19px;min-width:0}
+  .brand svg{width:30px;height:30px}
+  .top .signin{padding:8px 10px}
   .steps,.trust{grid-template-columns:1fr}
   .wrap{padding:0 20px}
   .hero .ctas .btn{flex:1 1 100%;justify-content:center}
