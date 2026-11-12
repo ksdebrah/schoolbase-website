@@ -54,11 +54,11 @@ p{margin:0}
 .menu-btn svg{width:22px;height:22px;display:block;stroke:var(--ink)}
 
 /* hero: an exercise book page */
-.hero{position:relative;overflow:hidden;padding:72px 0 0;
+.hero{position:relative;overflow:hidden;padding:72px 0 32px;background:#fff}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:
     linear-gradient(90deg,transparent 0,transparent calc(50% - 600px + 6px),rgba(240,191,90,.75) calc(50% - 600px + 6px),rgba(240,191,90,.75) calc(50% - 600px + 8px),transparent calc(50% - 600px + 8px)),
-    repeating-linear-gradient(180deg,transparent 0,transparent 35px,#e3eaf4 35px,#e3eaf4 36px),
-    #fff}
+    repeating-linear-gradient(180deg,transparent 0,transparent 35px,#e3eaf4 35px,#e3eaf4 36px)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(rgba(255,255,255,0),#fff);pointer-events:none}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,5.2vw,64px);line-height:1.04;font-weight:750;max-width:12ch}
@@ -71,11 +71,115 @@ p{margin:0}
 .frame .bar{height:26px;background:#f2f5f9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
 .frame .bar i{width:9px;height:9px;border-radius:50%;background:#d4dbe6}
 .shots .iphone{position:absolute;right:-6px;bottom:0;--w:clamp(120px,12.6vw,186px)}
+/* hero: the page is ruled, then the words and screens arrive */
 @media (prefers-reduced-motion:no-preference){
-  .shots{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .1s}
-  .shots .iphone{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .3s}
+  .hero::before{animation:rule 1.3s cubic-bezier(.65,0,.35,1) both}
+  .hero-copy>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>:nth-child(1){animation-delay:.25s}.hero-copy>:nth-child(2){animation-delay:.38s}
+  .hero-copy>:nth-child(3){animation-delay:.5s}.hero-copy>:nth-child(4){animation-delay:.6s}
+  .shots .mac{animation:rise .8s cubic-bezier(.2,.7,.2,1) both .45s}
+  .shots .iphone{animation:phone-in .9s cubic-bezier(.2,.8,.2,1) both .75s}
+  .screens{animation:rise .6s cubic-bezier(.2,.7,.2,1) both 1s}
+  @keyframes rule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes phone-in{from{opacity:0;transform:translate(30px,40px) rotate(4deg)}to{opacity:1;transform:none}}
 }
+/* page picker under the hero screens */
+.screens{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-right:calc(clamp(120px,12.6vw,186px) + 12px)}
+.screens button{position:relative;overflow:hidden;min-height:36px;padding:0 14px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--ink-2);font:600 14px/1 var(--body);cursor:pointer}
+.screens button.on{border-color:var(--blue);color:var(--blue)}
+.screens button.on::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--gold);transform-origin:left}
+.screens.auto button.on::after{animation:fill var(--dur,4.5s) linear both}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (hover:hover) and (pointer:fine){.screens button:hover{border-color:var(--ink-3);color:var(--ink)}}
+
+/* live feed */
+.live{background:var(--blue-deep);color:#fff;padding:88px 0;overflow:hidden}
+.live-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.live h2{color:#fff;font-size:clamp(30px,3.4vw,44px);line-height:1.1}
+.live-grid>div>p{margin-top:16px;font-size:18px;color:#cdd9eb;max-width:46ch}
+.live-grid .live-school{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:15px;color:#e8eef7}
+.pulse{position:relative;width:10px;height:10px;border-radius:50%;background:#5fd38d;flex:none}
+@media (prefers-reduced-motion:no-preference){.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5fd38d;animation:ping 1.8s ease-out infinite}}
+@keyframes ping{from{transform:scale(1);opacity:.7}to{transform:scale(3);opacity:0}}
+.feed{list-style:none;margin:0;padding:18px;border-radius:24px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);display:flex;flex-direction:column;height:452px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.feed li{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s cubic-bezier(.22,1,.36,1),opacity .45s,transform .55s cubic-bezier(.22,1,.36,1)}
+.feed li>div{overflow:hidden;min-height:0}
+.feed li.enter{grid-template-rows:0fr;opacity:0;transform:translateY(-12px) scale(.98)}
+.feed .card{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:14px;align-items:start;margin-bottom:10px;padding:14px 16px;border-radius:16px;background:#fff;color:var(--ink);box-shadow:0 12px 24px -16px rgba(0,0,0,.5)}
+.feed .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--wash);color:var(--blue)}
+.feed .ico.money{background:#fdf1d6;color:var(--gold-deep)}
+.feed .ico svg{width:22px;height:22px}
+.feed b{display:block;font:650 16px/1.3 var(--display)}
+.feed span{display:block;font-size:14.5px;line-height:1.45;color:var(--ink-2);margin-top:2px}
+.feed time{font:600 13px/1 var(--body);color:var(--ink-3);padding-top:3px;font-variant-numeric:tabular-nums}
+
+/* roles */
+.roles{display:grid;grid-template-columns:minmax(0,.85fr) auto minmax(0,1fr);gap:56px;align-items:center}
+.role-tabs{display:flex;flex-direction:column;gap:6px}
+.role-tabs button{display:block;text-align:left;width:100%;padding:16px 18px 16px 20px;border:0;border-left:3px solid var(--line);border-radius:0 12px 12px 0;background:none;color:var(--ink-3);cursor:pointer;font:inherit;transition:background-color .2s,border-color .2s,color .2s}
+.role-tabs button b{display:block;font:700 21px/1.2 var(--display);color:inherit}
+.role-tabs button span{display:block;font-size:15px;margin-top:3px;color:var(--ink-3)}
+.role-tabs button[aria-selected=true]{border-left-color:var(--gold);background:var(--wash);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.role-tabs button:hover{color:var(--ink)}}
+.roles .iphone{--w:min(64vw,270px)}
+.role-text h3{font-size:28px;line-height:1.15}
+.role-text>p{margin-top:12px;color:var(--ink-2);font-size:18px}
+@media (prefers-reduced-motion:no-preference){
+  .role-text.changing>*{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+  .role-text.changing>:nth-child(2){animation-delay:.05s}.role-text.changing>:nth-child(3){animation-delay:.1s}
+}
+
+/* exercise book vs SchoolBase */
+.compare{position:relative;--pos:50%;border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 30px 60px -34px rgba(20,35,59,.45);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.compare .layer{min-height:540px;padding:40px clamp(20px,4vw,56px) 36px}
+.book{position:relative;background:
+  linear-gradient(90deg,transparent 0,transparent 74px,rgba(214,69,69,.55) 74px,rgba(214,69,69,.55) 76px,transparent 76px),
+  repeating-linear-gradient(180deg,#fbf8ef 0,#fbf8ef 37px,#bcd0e6 37px,#bcd0e6 38px);
+  font-family:"Caveat","Bradley Hand","Segoe Print",cursive;color:#1f3a7a}
+.book::after{content:"";position:absolute;right:8%;bottom:14%;width:150px;height:150px;border-radius:50%;box-shadow:inset 0 0 0 7px rgba(150,110,60,.13),inset 0 0 0 9px rgba(150,110,60,.05);transform:rotate(-12deg) scaleX(1.08)}
+.book .inner{padding-left:58px}
+.book h3{font:600 32px/38px "Caveat","Bradley Hand",cursive;color:#1f3a7a;letter-spacing:0;margin-bottom:0}
+.book table{border-collapse:collapse;font-size:26px;line-height:38px}
+.book td{padding:0 26px 0 0;white-space:nowrap;vertical-align:top}
+.book td:nth-child(2),.book td:nth-child(3){text-align:right}
+.book s{text-decoration-thickness:2px;color:#4c5f8f}
+.book .red{color:#c0392b}
+.book .note{position:absolute;right:clamp(16px,5%,64px);top:84px;font-size:24px;line-height:1.1;color:#c0392b;transform:rotate(-6deg);text-align:center}
+.book .total{font-size:27px;border-top:2px solid #1f3a7a}
+.sb{position:absolute;inset:0;background:#fff;clip-path:inset(0 0 0 var(--pos));font-family:var(--body)}
+.sb .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sb h3{font-size:24px}
+.sb .hd span{font-size:14px;color:var(--ink-3)}
+.sb table{width:100%;border-collapse:collapse;font-size:15.5px}
+.sb th{text-align:left;font-weight:600;color:var(--ink-3);font-size:13.5px;padding:0 10px 10px 0;border-bottom:1px solid var(--line)}
+.sb td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.sb th:nth-child(n+2),.sb td:nth-child(n+2){text-align:right}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;background:#e3f4ea;color:#1d6b3f;white-space:nowrap}
+.chip.owe{background:#fdecea;color:#a3271b}
+.sb .sum{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:15.5px}
+.sb .sum b{font:700 19px/1.3 var(--display)}
+.sb .btn{min-height:42px;font-size:15px}
+.handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0;pointer-events:none;z-index:2}
+.handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--gold)}
+.handle i{position:absolute;top:50%;left:-24px;width:48px;height:48px;margin-top:-24px;border-radius:50%;background:var(--gold);box-shadow:0 8px 20px -8px rgba(20,35,59,.6);display:grid;place-items:center}
+.handle svg{width:24px;height:24px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:3}
+.compare:has(input:focus-visible) .handle i{outline:3px solid var(--blue);outline-offset:3px}
+.compare-labels{display:flex;justify-content:space-between;margin-top:14px;font-size:15px;color:var(--ink-3)}
+
+/* school day: ink runs along the line as you scroll */
+.day::after{content:"";position:absolute;left:0;top:27px;height:2px;width:calc(var(--p,1)*100%);background:var(--blue)}
+.day time{transition:background-color .35s,border-color .35s,color .35s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.day.ink li:not(.lit) time{background:#fff;border-color:var(--wash-2);color:var(--ink-3);transform:scale(.92)}
+.day li.lit time{border-color:var(--blue)}
+.day li:nth-child(2).lit time,.day li:nth-child(4).lit time{border-color:var(--gold)}
+
+/* ticks are drawn in when a feature comes into view */
+.motion .feat .ticks li::before{transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1) calc(var(--i,0)*80ms + .15s)}
+.motion .feat.seen .ticks li::before{transform:none}
+.phone-pair .iphone{will-change:transform}
 
 /* sections */
 section{scroll-margin-top:80px}
@@ -232,6 +336,13 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   .nav.open .nav-signin{display:block;color:var(--blue);font-weight:650}
   .day{grid-template-columns:1fr;gap:28px}
   .day::before{left:31px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .day::after{left:31px;top:0;width:2px;height:calc(var(--p,1)*100%)}
+  .roles{grid-template-columns:minmax(0,1fr) auto;gap:40px}
+  .role-tabs{grid-column:1/-1;flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:none}
+  .role-tabs button{flex:none;width:auto;border-left:0;border-bottom:3px solid var(--line);border-radius:12px 12px 0 0;padding:12px 16px}
+  .role-tabs button[aria-selected=true]{border-bottom-color:var(--gold)}
+  .role-tabs button span{display:none}
+  .role-tabs button b{font-size:18px}
   .day li{display:grid;grid-template-columns:80px 1fr;column-gap:16px;padding:0}
   .day time{grid-row:span 2}
   .day h3{margin:4px 0 4px}
@@ -240,7 +351,24 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 }
 @media (max-width:860px){
   .shots .iphone{right:0}
-  .hero{padding-top:44px;background:repeating-linear-gradient(180deg,transparent 0,transparent 35px,#e3eaf4 35px,#e3eaf4 36px),#fff}
+  .hero{padding-top:44px}
+  .hero::before{background:repeating-linear-gradient(180deg,transparent 0,transparent 35px,#e3eaf4 35px,#e3eaf4 36px)}
+  .live{padding:64px 0}
+  .live-grid{grid-template-columns:1fr;gap:36px}
+  .feed{height:420px;padding:12px}
+  .roles{grid-template-columns:1fr;gap:28px;justify-items:center}
+  .role-tabs{justify-self:stretch;display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+  .role-tabs button{border-radius:12px;border:1.5px solid var(--line);text-align:center}
+  .role-tabs button[aria-selected=true]{border-color:var(--gold)}
+  .role-text{justify-self:stretch}
+  .compare .layer{min-height:590px}
+  .book .inner{padding-left:44px}
+  .book{background:
+  linear-gradient(90deg,transparent 0,transparent 44px,rgba(214,69,69,.55) 44px,rgba(214,69,69,.55) 46px,transparent 46px),
+  repeating-linear-gradient(180deg,#fbf8ef 0,#fbf8ef 37px,#bcd0e6 37px,#bcd0e6 38px)}
+  .book table{font-size:22px}
+  .book .note{display:none}
+  .sb .col-fee{display:none}
   .hero-grid,.feat,.feat.flip,.contact,.price{grid-template-columns:1fr;gap:36px}
   .feat.flip .feat-text{order:0}
   .shots{padding-bottom:56px}
@@ -257,6 +385,13 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   .steps,.trust{grid-template-columns:1fr}
   .wrap{padding:0 20px}
   .hero .ctas .btn{flex:1 1 100%;justify-content:center}
+  .screens button{padding:0 11px;font-size:13px}
+  .feed .card{grid-template-columns:34px minmax(0,1fr) auto;gap:12px;padding:12px 14px}
+  .feed .ico{width:34px;height:34px}
+  .feed b{font-size:15px}.feed span{font-size:14px}
+  .book table{font-size:20px}
+  .book td{padding-right:10px}
+  .sb table{font-size:14.5px}
 }
 </style>
 </head>
@@ -272,6 +407,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#day">A school day</a>
       <a href="#features">Features</a>
+      <a href="#roles">Who uses it</a>
       <a href="#switch">Switching</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">Questions</a>
@@ -286,7 +422,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 <main id="main">
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <h1 id="hero-h">Run your whole school from one simple system.</h1>
       <p class="lede">Fees, registers, report cards, canteen and bus money, payroll and texts to parents. SchoolBase is made for basic schools in Ghana, from Creche to JHS 3, and works on the phones your staff already carry.</p>
       <div class="ctas">
@@ -296,9 +432,21 @@ footer nav a{color:var(--ink-2);text-decoration:none}
       <p class="price-note"><b>GH₵3 per pupil per term.</b> Every feature, for every school.</p>
     </div>
     <div class="shots">
-      <div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-home.webp" width="1600" height="1000" alt="The SchoolBase home screen for a head teacher: today's fees, canteen money and spending, and a list of things that need attention."></div></div><div class="base" aria-hidden="true"></div></div>
-      <div class="iphone" aria-hidden="true"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
+      <div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp swap" data-swap="d"><img class="on" src="img/d-home.webp" width="1600" height="1000" alt="SchoolBase on a laptop and a phone. The screens move through the head teacher's home page, fees, the morning register and report cards."></div></div><div class="base" aria-hidden="true"></div></div>
+      <div class="iphone" aria-hidden="true"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view swap" data-swap="p"><img class="on" src="img/p-home.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
+      <div class="screens" role="group" aria-label="Choose the page shown on the screens"><button type="button" class="on" aria-pressed="true">Home</button><button type="button" aria-pressed="false">Fees</button><button type="button" aria-pressed="false">Register</button><button type="button" aria-pressed="false">Report cards</button></div>
     </div>
+  </div>
+</section>
+
+<section class="live" aria-labelledby="live-h">
+  <div class="wrap live-grid">
+    <div>
+      <h2 id="live-h">The whole school day, as it happens</h2>
+      <p>Every register, payment and score lands in one place the moment it's saved. The head teacher sees it all without walking to the office.</p>
+      <p class="live-school"><span class="pulse" aria-hidden="true"></span>A day at Riverside Basic School, our demo school</p>
+    </div>
+    <ul class="feed" id="feed" aria-label="Things that happened today at the demo school"><li><div><div class="card"><span class="ico money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16a8 8 0 0 1-16 0zM9 7c0-1.5 1-1.5 1-3M13 7c0-1.5 1-1.5 1-3"/></svg></span><div><b>Canteen money for Basic 2</b><span>GH₵126 from 21 pupils, collected by Mr Kofi Boateng.</span></div><time>10:30</time></div></div></li><li><div><div class="card"><span class="ico money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M14.5 9.2A3.3 3.3 0 1 0 14.5 14.8M12 6.5v11"/></svg></span><div><b>Fees paid for Kwame Asante</b><span>GH₵450 by MoMo. The receipt went to his mother on WhatsApp.</span></div><time>9:05</time></div></div></li><li><div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 12l2 2 4-4"/></svg></span><div><b>Basic 4A register closed</b><span>28 present, 2 absent. Both parents have been texted.</span></div><time>8:30</time></div></div></li><li><div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/></svg></span><div><b>Staff register</b><span>14 of 16 staff signed in. Mr Yaw Darko is on leave.</span></div><time>7:32</time></div></div></li></ul>
   </div>
 </section>
 
@@ -390,7 +538,25 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   </div>
 </section>
 
-<section class="sec" id="ghana" aria-labelledby="gh-h">
+<section class="sec" id="roles" aria-labelledby="roles-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="roles-h">A different screen for every job</h2>
+      <p>Everyone signs in with their own account and sees only the pages their job needs.</p>
+    </div>
+    <div class="roles">
+      <div class="role-tabs" role="tablist" aria-label="Roles"><button type="button" role="tab" id="tab-head" aria-controls="role-panel" aria-selected="true" tabindex="0" data-role="0"><b>Head teacher</b><span>The whole school, on one page</span></button><button type="button" role="tab" id="tab-bursar" aria-controls="role-panel" aria-selected="false" tabindex="-1" data-role="1"><b>Bursar</b><span>Money in, money out, and payday</span></button><button type="button" role="tab" id="tab-teacher" aria-controls="role-panel" aria-selected="false" tabindex="-1" data-role="2"><b>Class teacher</b><span>The register and scores, from a phone</span></button><button type="button" role="tab" id="tab-daily" aria-controls="role-panel" aria-selected="false" tabindex="-1" data-role="3"><b>Canteen and bus</b><span>Daily money, ticked off by class or route</span></button></div>
+      <div class="iphone" aria-hidden="true"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view swap" id="role-shot"><img class="on" src="img/p-home.webp" width="600" height="1299" loading="lazy" alt=""><img src="img/p-payroll.webp" width="600" height="1299" loading="lazy" alt=""><img src="img/p-attend.webp" width="600" height="1299" loading="lazy" alt=""><img src="img/p-daily.webp" width="600" height="1299" loading="lazy" alt=""></div><div class="homebar"></div></div></div>
+      <div class="role-text" id="role-panel" role="tabpanel" aria-labelledby="tab-head" tabindex="0">
+        <h3>The whole school, on one page</h3>
+        <p>Today's money, registers not yet taken and anything waiting for approval.</p>
+        <ul class="ticks"><li>Approve report cards before they print</li><li>See who owes fees, by class or by family</li><li>Check every text sent to parents</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-wash" id="ghana" aria-labelledby="gh-h">
   <div class="wrap">
     <div class="head-split">
       <div class="sec-head">
@@ -407,6 +573,35 @@ footer nav a{color:var(--ink-2);text-decoration:none}
       <div><h3>Canteen and bus</h3><p>Daily payments that parents choose, kept apart from fees, as schools here run them.</p></div>
       <div><h3>Texts from your school's name</h3><p>Parents see your school as the sender, not a random number.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="before" aria-labelledby="before-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="before-h">From the fees book to SchoolBase</h2>
+      <p>The same six pupils, as most school offices keep them today and as they look in SchoolBase. Drag the gold handle to compare.</p>
+    </div>
+    <div class="compare" id="compare">
+      <div class="layer book" aria-hidden="true">
+        <div class="inner">
+          <h3>Basic 4A fees, 1st term</h3>
+          <table><tr><td>Kwame Asante</td><td>600</td><td>paid</td></tr><tr><td>Ama Opoku</td><td>450</td><td class="red">bal 150</td></tr><tr><td>Kwadwo Tetteh</td><td><s>500</s> 600</td><td>paid</td></tr><tr><td>Efua Boateng</td><td>300</td><td class="red">bal 300?</td></tr><tr><td>Ekow <s>Owusu</s> Owusu</td><td>—</td><td class="red">see mum</td></tr><tr><td>Yaa Tetteh</td><td>600</td><td>paid</td></tr><tr class="total"><td>Total</td><td>Gh¢2,550</td><td></td></tr></table>
+        </div>
+        <p class="note">who paid<br>Ekow's?</p>
+      </div>
+      <div class="layer sb">
+        <div class="hd"><h3>Fees: Basic 4A</h3><span>Term 1, updated as each payment is saved</span></div>
+        <table>
+          <thead><tr><th>Pupil</th><th class="col-fee">Term bill</th><th>Paid</th><th>Status</th></tr></thead>
+          <tbody><tr><td>Kwame Asante</td><td class="col-fee">GH₵600</td><td>GH₵600</td><td><span class="chip">Paid</span></td></tr><tr><td>Ama Opoku</td><td class="col-fee">GH₵600</td><td>GH₵450</td><td><span class="chip owe">Owes GH₵150</span></td></tr><tr><td>Kwadwo Tetteh</td><td class="col-fee">GH₵600</td><td>GH₵600</td><td><span class="chip">Paid</span></td></tr><tr><td>Efua Boateng</td><td class="col-fee">GH₵600</td><td>GH₵300</td><td><span class="chip owe">Owes GH₵300</span></td></tr><tr><td>Ekow Owusu</td><td class="col-fee">GH₵600</td><td>GH₵0</td><td><span class="chip owe">Owes GH₵600</span></td></tr><tr><td>Yaa Tetteh</td><td class="col-fee">GH₵600</td><td>GH₵600</td><td><span class="chip">Paid</span></td></tr></tbody>
+        </table>
+        <div class="sum"><span><b>GH₵2,550 of GH₵3,600 collected.</b><br>3 pupils owe GH₵1,050.</span><span class="btn btn-primary" aria-hidden="true">Text parents who owe</span></div>
+      </div>
+      <div class="handle" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="#14233b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg></i></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the fees book with SchoolBase. Left shows more of the fees book, right shows more of SchoolBase.">
+    </div>
+    <div class="compare-labels" aria-hidden="true"><span>The fees book</span><span>SchoolBase</span></div>
   </div>
 </section>
 
@@ -520,6 +715,99 @@ var CONTACT={whatsapp:"",phone:"",email:""};
   btn.addEventListener("click",function(){var o=nav.classList.toggle("open");btn.setAttribute("aria-expanded",String(o));btn.setAttribute("aria-label",o?"Close menu":"Open menu");});
   nav.addEventListener("click",function(e){if(e.target.closest("a")){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");}});
   document.getElementById("yr").textContent=new Date().getFullYear();
+})();
+
+/* motion: everything below is optional and stops when the visitor asks for less motion */
+(function(){
+  var calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.toggle("motion",!calm);
+  function seen(el,fn,margin){if(!el)return;if(!("IntersectionObserver" in window)){fn(true);return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){fn(e.isIntersecting,io);});},{rootMargin:margin||"0px"});io.observe(el);return io;}
+
+  /* hero screens: the laptop and phone move through four pages */
+  var SETS=[["d-home","p-home"],["d-fees","p-fees"],["d-attend","p-attend"],["d-reports","p-reports"]];
+  var dWrap=document.querySelector('[data-swap="d"]'),pWrap=document.querySelector('[data-swap="p"]');
+  var row=document.querySelector(".screens"),btns=row.querySelectorAll("button"),cur=0,timer=null,auto=!calm,inView=true,DUR=4500;
+  var dImgs=[dWrap.querySelector("img")],pImgs=[pWrap.querySelector("img")];
+  function load(){for(var i=1;i<SETS.length;i++){
+    var a=new Image();a.src="img/"+SETS[i][0]+".webp";a.width=1600;a.height=1000;a.alt="";a.decoding="async";dWrap.appendChild(a);dImgs.push(a);
+    var b=new Image();b.src="img/"+SETS[i][1]+".webp";b.width=600;b.height=1299;b.alt="";b.decoding="async";pWrap.appendChild(b);pImgs.push(b);}}
+  function show(i){cur=i;dImgs.forEach(function(m,j){m.classList.toggle("on",j===i);});pImgs.forEach(function(m,j){m.classList.toggle("on",j===i);});
+    btns.forEach(function(b,j){b.classList.toggle("on",j===i);b.setAttribute("aria-pressed",String(j===i));});
+    if(auto){var on=btns[i];on.classList.remove("on");void on.offsetWidth;on.classList.add("on");}}
+  function tick(){clearTimeout(timer);if(!auto||!inView||document.hidden)return;timer=setTimeout(function(){show((cur+1)%SETS.length);tick();},DUR);}
+  row.style.setProperty("--dur",DUR+"ms");row.classList.toggle("auto",auto);
+  btns.forEach(function(b,j){b.addEventListener("click",function(){auto=false;row.classList.remove("auto");clearTimeout(timer);show(j);});});
+  function start(){load();tick();}
+  if(document.readyState==="complete")start();else addEventListener("load",start);
+  seen(document.querySelector(".hero"),function(v){inView=v;row.classList.toggle("auto",auto&&v);if(v)tick();else clearTimeout(timer);});
+  document.addEventListener("visibilitychange",tick);
+
+  /* live feed: a new event arrives every few seconds */
+  var FEED=[["7:32", "staff", "Staff register", "14 of 16 staff signed in. Mr Yaw Darko is on leave."], ["8:30", "reg", "Basic 4A register closed", "28 present, 2 absent. Both parents have been texted."], ["9:05", "fee", "Fees paid for Kwame Asante", "GH₵450 by MoMo. The receipt went to his mother on WhatsApp."], ["10:30", "canteen", "Canteen money for Basic 2", "GH₵126 from 21 pupils, collected by Mr Kofi Boateng."], ["10:41", "bus", "Bus money for Route 2", "GH₵90 from 15 pupils, collected by the driver."], ["11:20", "stock", "Running low in the store", "Exercise books: 18 left. Reorder level is 25."], ["12:10", "score", "JHS 2 maths scores entered", "Class scores for 32 pupils, out of 30."], ["13:15", "report", "Report cards to approve", "Basic 6 report cards are waiting for the head teacher."], ["14:40", "spend", "Expense recorded", "Printer ink, GH₵85, paid from petty cash."], ["15:00", "close", "The day is closed", "GH₵3,420 in and GH₵310 out. The summary went to the proprietor."]];
+  var ICON={"staff": "<path d=\"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0\"/>", "reg": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"17\" rx=\"2\"/><path d=\"M9 4V2.5h6V4M9 12l2 2 4-4\"/>", "fee": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M14.5 9.2A3.3 3.3 0 1 0 14.5 14.8M12 6.5v11\"/>", "canteen": "<path d=\"M4 11h16a8 8 0 0 1-16 0zM9 7c0-1.5 1-1.5 1-3M13 7c0-1.5 1-1.5 1-3\"/>", "bus": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"13\" rx=\"2\"/><path d=\"M4 11h16M7 17v3M17 17v3\"/><circle cx=\"8\" cy=\"14\" r=\".8\"/><circle cx=\"16\" cy=\"14\" r=\".8\"/>", "stock": "<path d=\"M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5zM3.5 7.5 12 12l8.5-4.5M12 12v9\"/>", "score": "<path d=\"M4 20h4L19 9l-4-4L4 16zM13 7l4 4\"/>", "report": "<path d=\"M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5\"/>", "spend": "<path d=\"M5 3v18l2-1.5L9 21l2-1.5 2 1.5 2-1.5 2 1.5 2-1.5V3l-2 1.5L15 3l-2 1.5L11 3 9 4.5 7 3zM9 9h6M9 13h6\"/>", "close": "<path d=\"M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z\"/>"};
+  var MONEY={fee:1,canteen:1,bus:1,spend:1,close:1};
+  var feed=document.getElementById("feed"),next=4,ft=null,feedOn=false;
+  function li(f){var el=document.createElement("li");
+    el.innerHTML='<div><div class="card"><span class="ico'+(MONEY[f[1]]?" money":"")+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[f[1]]+'</svg></span><div><b>'+f[2]+'</b><span>'+f[3]+'</span></div><time>'+f[0]+'</time></div></div>';return el;}
+  function push(){var f=FEED[next%FEED.length];next++;var el=li(f);el.classList.add("enter");feed.insertBefore(el,feed.firstChild);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove("enter");});});
+    while(feed.children.length>6)feed.removeChild(feed.lastChild);}
+  function feedLoop(){clearTimeout(ft);if(!feedOn||document.hidden)return;ft=setTimeout(function(){push();feedLoop();},2600);}
+  if(!calm){seen(feed,function(v){feedOn=v;feedLoop();});document.addEventListener("visibilitychange",feedLoop);}
+
+  /* roles */
+  var ROLES=[["Head teacher", "The whole school, on one page", "p-home", "Today's money, registers not yet taken and anything waiting for approval.", ["Approve report cards before they print", "See who owes fees, by class or by family", "Check every text sent to parents"]], ["Bursar", "Money in, money out, and payday", "p-payroll", "Every payment gets a receipt, and payroll works itself out.", ["Record fees by cash, MoMo or bank in seconds", "Run payroll with SSNIT and PAYE worked out", "Print the debtors list for the head teacher"]], ["Class teacher", "The register and scores, from a phone", "p-attend", "Teachers only see their own classes, never the school's money.", ["Take the morning register in about a minute", "Enter class and exam scores; totals and positions follow", "Write report card remarks for each pupil"]], ["Canteen and bus", "Daily money, ticked off by class or route", "p-daily", "Collectors mark who paid today. It never touches the term bill.", ["Mark who paid for canteen or the bus", "Find any pupil by name, admission number or phone", "Hand over the day's total with who collected it"]]];
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]')),panel=document.getElementById("role-panel"),shots=document.querySelectorAll("#role-shot img");
+  function pick(i,focus){tabs.forEach(function(t,j){t.setAttribute("aria-selected",String(j===i));t.tabIndex=j===i?0:-1;});
+    shots.forEach(function(m,j){m.classList.toggle("on",j===i);});
+    var r=ROLES[i];panel.setAttribute("aria-labelledby",tabs[i].id);
+    panel.innerHTML="<h3>"+r[1]+"</h3><p>"+r[3]+'</p><ul class="ticks">'+r[4].map(function(x){return "<li>"+x+"</li>";}).join("")+"</ul>";
+    panel.classList.remove("changing");void panel.offsetWidth;panel.classList.add("changing");
+    if(focus)tabs[i].focus();}
+  tabs.forEach(function(t,i){t.addEventListener("click",function(){pick(i);});
+    t.addEventListener("keydown",function(e){var k=e.key,n=tabs.length,j=null;
+      if(k==="ArrowDown"||k==="ArrowRight")j=(i+1)%n;else if(k==="ArrowUp"||k==="ArrowLeft")j=(i-1+n)%n;else if(k==="Home")j=0;else if(k==="End")j=n-1;
+      if(j!==null){e.preventDefault();pick(j,true);}});});
+
+  /* fees book vs SchoolBase */
+  var cmp=document.getElementById("compare"),rng=cmp.querySelector("input"),touched=false;
+  function setPos(v){cmp.style.setProperty("--pos",v+"%");}
+  rng.addEventListener("input",function(){touched=true;setPos(rng.value);});
+  seen(cmp,function(v,io){if(!v)return;io&&io.disconnect();
+    if("FontFace" in window){var ff=new FontFace("Caveat","url(fonts/caveat.woff2)",{weight:"600"});ff.load().then(function(f){document.fonts.add(f);}).catch(function(){});}
+    if(calm)return;
+    var keys=[[0,50],[700,24],[1500,76],[2200,50]],t0=null;
+    function ease(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;}
+    function step(t){if(touched)return;if(t0===null)t0=t;var e=t-t0,v=50;
+      for(var k=1;k<keys.length;k++){if(e<=keys[k][0]){var a=keys[k-1],b=keys[k],x=ease((e-a[0])/(b[0]-a[0]));v=a[1]+(b[1]-a[1])*x;break;}v=keys[k][1];}
+      setPos(v);rng.value=Math.round(v);if(e<keys[keys.length-1][0])requestAnimationFrame(step);}
+    setTimeout(function(){requestAnimationFrame(step);},350);},"-20% 0px");
+
+  if(calm)return;
+
+  /* ticks in each feature draw in when it comes into view */
+  document.querySelectorAll(".feat").forEach(function(f){
+    f.querySelectorAll(".ticks li").forEach(function(l,i){l.style.setProperty("--i",i);});
+    seen(f,function(v,io){if(v){f.classList.add("seen");io.unobserve(f);}},"-15% 0px");});
+
+  /* school day ink and the pupils phones drifting apart */
+  var day=document.querySelector(".day"),items=day.querySelectorAll("li"),pair=document.querySelectorAll(".phone-pair .iphone"),raf=0;
+  day.classList.add("ink");
+  function frame(){raf=0;var vh=innerHeight,r=day.getBoundingClientRect(),vert=getComputedStyle(day,"::before").width==="2px";
+    var p=Math.min(1,Math.max(0,(vh*.72-r.top)/(r.height+vh*.12)));
+    day.style.setProperty("--p",p.toFixed(3));
+    items.forEach(function(li,i){var at=vert?(li.offsetTop+28)/r.height:i/items.length;li.classList.toggle("lit",p>=at);});
+    if(pair.length){var pr=pair[0].parentNode.getBoundingClientRect();if(pr.bottom>0&&pr.top<vh){var c=(pr.top+pr.height/2-vh/2)/vh;
+      pair[0].style.transform="translateY("+(c*-34).toFixed(1)+"px)";pair[1].style.transform="translateY("+(c*34).toFixed(1)+"px)";}}}
+  addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(frame);},{passive:true});
+  addEventListener("resize",function(){if(!raf)raf=requestAnimationFrame(frame);});
+  frame();
+
+  /* price calculator glides to the new number */
+  var r=document.getElementById("pupils"),t=document.getElementById("term"),shown=+r.value*3,anim=0;
+  r.addEventListener("input",function(){var to=+r.value*3,from=shown,t0=performance.now();cancelAnimationFrame(anim);
+    (function go(now){var x=Math.min(1,(now-t0)/220),v=Math.round(from+(to-from)*(1-Math.pow(1-x,3)));shown=v;t.textContent="GH₵"+v.toLocaleString("en-GB");if(x<1)anim=requestAnimationFrame(go);})(t0);});
 })();
 </script>
 </body>
