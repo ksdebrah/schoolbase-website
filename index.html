@@ -21,7 +21,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper)}
+body{margin:0;overflow-x:hidden;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper)}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--blue)}
 h1,h2,h3{font-family:var(--display);color:var(--ink);margin:0;font-weight:700;letter-spacing:-.015em}
@@ -66,15 +66,14 @@ p{margin:0}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .hero .price-note{margin-top:22px;font-size:15px;color:var(--ink-2)}
 .hero .price-note b{color:var(--ink)}
-.shots{position:relative;padding:12px 0 80px 0}
+.shots{position:relative;padding:12px 0 56px 0}
 .frame{border-radius:12px;background:#fff;box-shadow:0 1px 0 rgba(20,35,59,.04),0 24px 60px -18px rgba(20,35,59,.35),0 0 0 1px rgba(20,35,59,.08);overflow:hidden}
 .frame .bar{height:26px;background:#f2f5f9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
 .frame .bar i{width:9px;height:9px;border-radius:50%;background:#d4dbe6}
-.phone{position:absolute;right:-8px;bottom:22px;width:31%;border-radius:24px;background:#0f1a2c;padding:4px;box-shadow:0 30px 60px -20px rgba(20,35,59,.55)}
-.phone img{border-radius:20px}
+.shots .iphone{position:absolute;right:-6px;bottom:0;--w:clamp(120px,12.6vw,186px)}
 @media (prefers-reduced-motion:no-preference){
   .shots{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .1s}
-  .phone{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .3s}
+  .shots .iphone{animation:rise .7s cubic-bezier(.2,.7,.2,1) both .3s}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 }
 
@@ -105,9 +104,9 @@ section{scroll-margin-top:80px}
 .ticks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
 .ticks li{position:relative;padding-left:30px;font-size:16.5px;line-height:1.5}
 .ticks li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--wash-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232b4f80' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
-.phone-pair{display:flex;gap:20px;justify-content:center;align-items:flex-start}
-.phone-pair .phone{position:static;width:min(46%,260px);animation:none}
-.phone-pair .phone:nth-child(2){margin-top:48px}
+.phone-pair{display:flex;gap:24px;justify-content:center;align-items:flex-start}
+.phone-pair .iphone{--w:min(38vw,250px)}
+.phone-pair .iphone:nth-child(2){margin-top:48px}
 
 /* ghana list */
 .gh{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
@@ -185,7 +184,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 .head-split .sec-head{margin-bottom:0}
 .head-split .photo img{aspect-ratio:3/2}
 .inset-wrap{position:relative}
-.inset{position:absolute;left:-28px;bottom:-36px;width:38%;margin:0;border:6px solid #fff;border-radius:16px;box-shadow:0 20px 40px -18px rgba(20,35,59,.45);overflow:hidden}
+.inset{position:absolute;left:-28px;bottom:-30px;width:38%;margin:0;border:6px solid #fff;border-radius:16px;box-shadow:0 20px 40px -18px rgba(20,35,59,.45);overflow:hidden}
 .inset img{display:block;aspect-ratio:3/2;object-fit:cover}
 .contact{grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,.9fr)}
 .contact .photo img{aspect-ratio:4/5}
@@ -195,6 +194,32 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 .signin{white-space:nowrap;flex:none;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px}
 @media (hover:hover) and (pointer:fine){.signin:hover{background:var(--wash)}}
 .nav-signin{display:none}
+
+/* devices: iPhone with Dynamic Island, MacBook with notch */
+.iphone{--w:280px;position:relative;width:var(--w);aspect-ratio:393/852;border-radius:calc(var(--w)*.165);padding:calc(var(--w)*.032);background:linear-gradient(150deg,#4a4e57 0%,#1b1d22 35%,#121417 65%,#3a3d45 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 0 0 1px #0a0b0d,0 50px 90px -40px rgba(18,29,47,.55),0 24px 40px -24px rgba(18,29,47,.35);flex:none}
+.iphone::before,.iphone::after{content:"";position:absolute;width:3px;border-radius:2px;background:#2a2d33}
+.iphone::before{left:-3px;top:22%;height:7%;box-shadow:0 calc(var(--w)*.14) 0 #2a2d33,0 calc(var(--w)*.28) 0 #2a2d33}
+.iphone::after{right:-3px;top:30%;height:11%}
+.iphone .scr{position:relative;width:100%;height:100%;border-radius:calc(var(--w)*.135);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.iphone .sb{position:relative;flex:none;height:calc(var(--w)*.135);display:flex;align-items:center;justify-content:space-between;padding:calc(var(--w)*.015) calc(var(--w)*.085) 0;font:600 calc(var(--w)*.05)/1 -apple-system,"SF Pro Text",system-ui,sans-serif;color:#0b0b0b;background:#fff}
+.iphone .sb .ic{display:flex;gap:calc(var(--w)*.016);align-items:center}
+.iphone .sb svg{height:calc(var(--w)*.04);width:auto;display:block}
+.iphone .island{position:absolute;top:calc(var(--w)*.03);left:50%;width:calc(var(--w)*.32);height:calc(var(--w)*.095);margin-left:calc(var(--w)*-.16);border-radius:999px;background:#000;z-index:3}
+.iphone .island::after{content:"";position:absolute;right:18%;top:50%;width:calc(var(--w)*.03);height:calc(var(--w)*.03);margin-top:calc(var(--w)*-.015);border-radius:50%;background:radial-gradient(circle at 35% 35%,#2b3a55,#05070b 70%)}
+.iphone .view{position:relative;flex:1;overflow:hidden}
+.iphone .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:0}
+.iphone .homebar{position:absolute;left:50%;bottom:calc(var(--w)*.022);width:calc(var(--w)*.36);height:calc(var(--w)*.016);margin-left:calc(var(--w)*-.18);border-radius:999px;background:rgba(0,0,0,.8);z-index:3}
+.mac{position:relative;width:100%;margin:0 auto}
+.mac .lid{position:relative;padding:2.1% 2.1% 2.9%;border-radius:clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px) 0 0;background:#0c0d10;box-shadow:inset 0 0 0 2px #2c2f35,inset 0 0 0 5px #0c0d10,0 0 0 1px #8d929b}
+.mac .cam{position:absolute;top:0;left:50%;width:10%;height:3.2%;margin-left:-5%;background:#0c0d10;border-radius:0 0 8px 8px;z-index:2}
+.mac .cam::after{content:"";position:absolute;left:50%;top:38%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1d2a3e}
+.mac .disp{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:4px 4px 2px 2px;background:#fff}
+.mac .disp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.mac .base{position:relative;width:112%;left:-6%;height:clamp(8px,1.3vw,16px);background:linear-gradient(#e7e9ed,#c3c7ce 55%,#9ea3ab);border-radius:2px 2px 14px 14px;box-shadow:0 30px 50px -24px rgba(18,29,47,.45)}
+.mac .base::before{content:"";position:absolute;left:50%;top:0;width:15%;height:45%;margin-left:-7.5%;background:linear-gradient(#b9bdc4,#d4d7dc);border-radius:0 0 8px 8px}
+.swap img{opacity:0;transform:scale(1.03);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.swap img.on{opacity:1;transform:none}
+
 /* responsive */
 @media (max-width:1060px){
   .nav{display:none}
@@ -214,6 +239,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:860px){
+  .shots .iphone{right:0}
   .hero{padding-top:44px;background:repeating-linear-gradient(180deg,transparent 0,transparent 35px,#e3eaf4 35px,#e3eaf4 36px),#fff}
   .hero-grid,.feat,.feat.flip,.contact,.price{grid-template-columns:1fr;gap:36px}
   .feat.flip .feat-text{order:0}
@@ -270,8 +296,8 @@ footer nav a{color:var(--ink-2);text-decoration:none}
       <p class="price-note"><b>GH₵3 per pupil per term.</b> Every feature, for every school.</p>
     </div>
     <div class="shots">
-      <div class="frame"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/desk-home.webp" width="1600" height="1000" alt="The SchoolBase home screen for a head teacher: today's fees, canteen money and spending, and a list of things that need attention."></div>
-      <div class="phone"><img src="img/phone-home.webp" width="600" height="1299" alt="The same home screen on a phone."></div>
+      <div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-home.webp" width="1600" height="1000" alt="The SchoolBase home screen for a head teacher: today's fees, canteen money and spending, and a list of things that need attention."></div></div><div class="base" aria-hidden="true"></div></div>
+      <div class="iphone" aria-hidden="true"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
     </div>
   </div>
 </section>
@@ -314,7 +340,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
           <li>Store: uniforms, books and stationery, with stock levels</li>
         </ul>
       </div>
-      <div class="frame"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/desk-fees.webp" width="1600" height="1000" loading="lazy" alt="The Fees page: who owes, with each pupil's balance and a Pay button."></div>
+      <div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-fees.webp" width="1600" height="1000" loading="lazy" alt="The Fees page: who owes, with each pupil's balance and a Pay button."></div></div><div class="base" aria-hidden="true"></div></div>
     </div>
 
     <div class="feat flip">
@@ -329,8 +355,8 @@ footer nav a{color:var(--ink-2);text-decoration:none}
         </ul>
       </div>
       <div class="phone-pair">
-        <div class="phone"><img src="img/phone-register.webp" width="600" height="1299" loading="lazy" alt="The morning register on a phone, with Present, Late and Absent buttons for each pupil."></div>
-        <div class="phone"><img src="img/phone-fees.webp" width="600" height="1299" loading="lazy" alt="The Fees page on a phone."></div>
+        <div class="iphone"><div class="scr"><div class="sb"><span>8:29</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-attend.webp" width="600" height="1299" loading="lazy" alt="The morning register on a phone, with Present, Late and Absent buttons for each pupil."></div><div class="homebar"></div></div></div>
+        <div class="iphone"><div class="scr"><div class="sb"><span>11:15</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-fees.webp" width="600" height="1299" loading="lazy" alt="The Fees page on a phone."></div><div class="homebar"></div></div></div>
       </div>
     </div>
 
@@ -345,7 +371,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
           <li>Weekly timetables that warn you when a teacher is booked twice</li>
         </ul>
       </div>
-      <div class="inset-wrap"><div class="frame"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/desk-reports.webp" width="1600" height="1000" loading="lazy" alt="A Basic 4A report card with class and exam scores, totals, positions and GES levels, marked DRAFT until the head teacher approves it."></div><figure class="inset"><img src="img/photo-ruler.webp" width="700" height="467" loading="lazy" alt="A girl ruling lines in her maths exercise book."></figure></div>
+      <div class="inset-wrap"><div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-reports.webp" width="1600" height="1000" loading="lazy" alt="A Basic 4A report card with class and exam scores, totals, positions and GES levels, marked DRAFT until the head teacher approves it."></div></div><div class="base" aria-hidden="true"></div></div><figure class="inset"><img src="img/photo-ruler.webp" width="700" height="467" loading="lazy" alt="A girl ruling lines in her maths exercise book."></figure></div>
     </div>
 
     <div class="feat flip">
@@ -359,7 +385,7 @@ footer nav a{color:var(--ink-2);text-decoration:none}
           <li>Help on every page and a user guide for every role</li>
         </ul>
       </div>
-      <div class="frame"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/desk-messages.webp" width="1600" height="1000" loading="lazy" alt="The Messages page: choosing who to text and previewing the message."></div>
+      <div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-messages.webp" width="1600" height="1000" loading="lazy" alt="The Messages page: choosing who to text and previewing the message."></div></div><div class="base" aria-hidden="true"></div></div>
     </div>
   </div>
 </section>

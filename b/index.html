@@ -72,21 +72,19 @@ p{margin:0}
 .hero .note{margin-top:20px;font-size:14.5px;color:#9fb0c8}
 .hero .note b{color:#fff;font-weight:650}
 .fan{position:relative;height:520px;margin-top:64px;display:flex;justify-content:center;align-items:flex-start;perspective:1200px}
-.ph{position:relative;width:250px;border-radius:30px;background:#060d19;padding:4px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
-.ph img{border-radius:26px}
-.fan .ph{position:absolute;top:0}
-.fan .ph:nth-child(1){transform:translateX(-235px) translateY(70px) rotate(-8deg)}
-.fan .ph:nth-child(2){z-index:2;width:280px}
-.fan .ph:nth-child(3){transform:translateX(235px) translateY(70px) rotate(8deg)}
+.fan .iphone{position:absolute;top:0;--w:250px}
+.fan .iphone:nth-child(1){transform:translateX(-235px) translateY(70px) rotate(-8deg)}
+.fan .iphone:nth-child(2){z-index:2;--w:280px}
+.fan .iphone:nth-child(3){transform:translateX(235px) translateY(70px) rotate(8deg)}
 
 /* load sequence: one orchestrated moment */
 @media (prefers-reduced-motion:no-preference){
   .hero .kicker,.hero .lede,.hero .ctas,.hero .note{animation:up .9s var(--ease) both}
   .hero .kicker{animation-delay:.05s}.hero .lede{animation-delay:.55s}.hero .ctas{animation-delay:.68s}.hero .note{animation-delay:.8s}
   .hero h1 .w>span{animation:word 1s var(--ease) both;animation-delay:calc(.15s + var(--i)*.06s)}
-  .fan .ph:nth-child(2){animation:rise 1.2s var(--ease) both .55s}
-  .fan .ph:nth-child(1){animation:fanL 1.3s var(--ease) both .75s}
-  .fan .ph:nth-child(3){animation:fanR 1.3s var(--ease) both .75s}
+  .fan .iphone:nth-child(2){animation:rise 1.2s var(--ease) both .55s}
+  .fan .iphone:nth-child(1){animation:fanL 1.3s var(--ease) both .75s}
+  .fan .iphone:nth-child(3){animation:fanR 1.3s var(--ease) both .75s}
   @keyframes up{from{opacity:0;transform:translateY(18px)}}
   @keyframes word{from{opacity:0;transform:translateY(.55em) rotate(3deg);filter:blur(6px)}}
   @keyframes rise{from{opacity:0;transform:translateY(120px)}}
@@ -129,10 +127,8 @@ p{margin:0}
 .step p{font-size:18px;color:var(--ink-2);max-width:42ch}
 .step .m-shot{display:none}
 .stage{position:sticky;top:96px;height:calc(100vh - 128px);display:flex;align-items:center;justify-content:center}
-.stage .ph{width:300px}
-.screens{position:relative;aspect-ratio:600/1299;border-radius:26px;overflow:hidden;background:#fff}
-.screens img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .6s var(--ease),transform .9s var(--ease)}
-.screens img.on{opacity:1;transform:none}
+.stage .ph-wrap{position:relative}
+.stage .iphone{--w:300px}
 .clock{position:absolute;left:-62px;top:12%;width:108px;height:108px;border-radius:50%;background:#fff;box-shadow:0 18px 40px -16px rgba(13,27,48,.35),inset 0 0 0 1px var(--line);z-index:3}
 .clock::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--night)}
 .clock .hand{position:absolute;left:50%;bottom:50%;width:4px;margin-left:-2px;border-radius:4px;transform-origin:50% 100%;transition:transform .9s var(--ease)}
@@ -166,12 +162,8 @@ p{margin:0}
 .mod-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:36px}
 .mod{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--paper);font-weight:600;font-size:15.5px}
 .mod svg{width:22px;height:22px;color:var(--blue);flex:none}
-.duo{position:relative;height:640px}
-.duo .photo{position:absolute;left:0;top:40px;width:62%;border-radius:24px;overflow:hidden}
-.duo .photo img{aspect-ratio:4/5;object-fit:cover;width:100%}
-.duo .ph{position:absolute;right:4%;top:0;width:270px}
-.duo .ph img{border-radius:26px}
-.duo .credit{position:absolute;left:0;bottom:-6px;font-size:12.5px;color:var(--ink-3)}
+.duo{position:relative;padding:0 40px 60px 0}
+.duo .iphone{position:absolute;right:0;bottom:0;--w:clamp(120px,13vw,190px)}
 
 /* moving over */
 .move{background:var(--paper)}
@@ -234,6 +226,32 @@ footer .brand{color:#fff;font-size:16px}footer .brand svg{width:26px;height:26px
 footer nav{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
 footer a{text-decoration:none;color:#c1cde0}
 
+
+/* devices: iPhone with Dynamic Island, MacBook with notch */
+.iphone{--w:280px;position:relative;width:var(--w);aspect-ratio:393/852;border-radius:calc(var(--w)*.165);padding:calc(var(--w)*.032);background:linear-gradient(150deg,#4a4e57 0%,#1b1d22 35%,#121417 65%,#3a3d45 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 0 0 1px #0a0b0d,0 50px 90px -40px rgba(18,29,47,.55),0 24px 40px -24px rgba(18,29,47,.35);flex:none}
+.iphone::before,.iphone::after{content:"";position:absolute;width:3px;border-radius:2px;background:#2a2d33}
+.iphone::before{left:-3px;top:22%;height:7%;box-shadow:0 calc(var(--w)*.14) 0 #2a2d33,0 calc(var(--w)*.28) 0 #2a2d33}
+.iphone::after{right:-3px;top:30%;height:11%}
+.iphone .scr{position:relative;width:100%;height:100%;border-radius:calc(var(--w)*.135);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.iphone .sb{position:relative;flex:none;height:calc(var(--w)*.135);display:flex;align-items:center;justify-content:space-between;padding:calc(var(--w)*.015) calc(var(--w)*.085) 0;font:600 calc(var(--w)*.05)/1 -apple-system,"SF Pro Text",system-ui,sans-serif;color:#0b0b0b;background:#fff}
+.iphone .sb .ic{display:flex;gap:calc(var(--w)*.016);align-items:center}
+.iphone .sb svg{height:calc(var(--w)*.04);width:auto;display:block}
+.iphone .island{position:absolute;top:calc(var(--w)*.03);left:50%;width:calc(var(--w)*.32);height:calc(var(--w)*.095);margin-left:calc(var(--w)*-.16);border-radius:999px;background:#000;z-index:3}
+.iphone .island::after{content:"";position:absolute;right:18%;top:50%;width:calc(var(--w)*.03);height:calc(var(--w)*.03);margin-top:calc(var(--w)*-.015);border-radius:50%;background:radial-gradient(circle at 35% 35%,#2b3a55,#05070b 70%)}
+.iphone .view{position:relative;flex:1;overflow:hidden}
+.iphone .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:0}
+.iphone .homebar{position:absolute;left:50%;bottom:calc(var(--w)*.022);width:calc(var(--w)*.36);height:calc(var(--w)*.016);margin-left:calc(var(--w)*-.18);border-radius:999px;background:rgba(0,0,0,.8);z-index:3}
+.mac{position:relative;width:100%;margin:0 auto}
+.mac .lid{position:relative;padding:2.1% 2.1% 2.9%;border-radius:clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px) 0 0;background:#0c0d10;box-shadow:inset 0 0 0 2px #2c2f35,inset 0 0 0 5px #0c0d10,0 0 0 1px #8d929b}
+.mac .cam{position:absolute;top:0;left:50%;width:10%;height:3.2%;margin-left:-5%;background:#0c0d10;border-radius:0 0 8px 8px;z-index:2}
+.mac .cam::after{content:"";position:absolute;left:50%;top:38%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1d2a3e}
+.mac .disp{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:4px 4px 2px 2px;background:#fff}
+.mac .disp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.mac .base{position:relative;width:112%;left:-6%;height:clamp(8px,1.3vw,16px);background:linear-gradient(#e7e9ed,#c3c7ce 55%,#9ea3ab);border-radius:2px 2px 14px 14px;box-shadow:0 30px 50px -24px rgba(18,29,47,.45)}
+.mac .base::before{content:"";position:absolute;left:50%;top:0;width:15%;height:45%;margin-left:-7.5%;background:linear-gradient(#b9bdc4,#d4d7dc);border-radius:0 0 8px 8px}
+.swap img{opacity:0;transform:scale(1.03);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.swap img.on{opacity:1;transform:none}
+
 /* responsive */
 @media (max-width:1080px){
   .nav{display:none}.top .btn{display:none}
@@ -242,26 +260,25 @@ footer a{text-decoration:none;color:#c1cde0}
   .nav.open{display:flex;position:absolute;left:12px;right:12px;top:70px;flex-direction:column;background:#fff;color:var(--ink);padding:10px;border-radius:18px;box-shadow:0 30px 60px -20px rgba(13,27,48,.45)}
   .nav.open a{padding:14px 12px;font-size:17px;opacity:1}
   .story-grid{grid-template-columns:minmax(0,1fr) 340px;gap:48px}
-  .stage .ph{width:260px}
+  .stage .iphone{--w:260px}
   .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:860px){
   .hero{padding-top:120px}
   .fan{height:400px}
-  .fan .ph{width:180px}.fan .ph:nth-child(2){width:200px}
-  .fan .ph:nth-child(1){transform:translateX(-130px) translateY(50px) rotate(-8deg)}
-  .fan .ph:nth-child(3){transform:translateX(130px) translateY(50px) rotate(8deg)}
+  .fan .iphone{--w:180px}.fan .iphone:nth-child(2){--w:200px}
+  .fan .iphone:nth-child(1){transform:translateX(-130px) translateY(50px) rotate(-8deg)}
+  .fan .iphone:nth-child(3){transform:translateX(130px) translateY(50px) rotate(8deg)}
   .story-grid{grid-template-columns:1fr;margin-top:40px}
   .stage{display:none}
   .steps{padding-left:36px}
   .step{min-height:0;opacity:1;padding:28px 0}
   .step::before{top:42px;margin-top:0}
-  .step .m-shot{display:block;width:62%;max-width:260px;margin-top:22px;border-radius:24px;background:#060d19;padding:4px}
-  .step .m-shot img{border-radius:20px}
+  .step .m-shot{display:block;margin-top:24px}
+  .step .m-shot .iphone{--w:min(56vw,240px)}
   .mods,.final .wrap,.price{grid-template-columns:1fr}
-  .duo{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .duo .photo,.duo .ph{position:static;width:auto}
-  .duo .credit{position:static;grid-column:1/-1}
+  .duo{padding:0 24px 48px 0}
+  .duo .iphone{--w:30vw}
   .path{grid-template-columns:1fr 1fr}.path::before,.path::after{display:none}
   .price{padding:40px 28px;border-radius:28px}
   .calc{padding:28px}
@@ -274,9 +291,9 @@ footer a{text-decoration:none;color:#c1cde0}
   .cards,.mod-list,.path{grid-template-columns:1fr}
   .hero .ctas .btn{flex:1 1 100%}
   .fan{height:330px}
-  .fan .ph{width:150px}.fan .ph:nth-child(2){width:168px}
-  .fan .ph:nth-child(1){transform:translateX(-100px) translateY(40px) rotate(-8deg)}
-  .fan .ph:nth-child(3){transform:translateX(100px) translateY(40px) rotate(8deg)}
+  .fan .iphone{--w:150px}.fan .iphone:nth-child(2){--w:168px}
+  .fan .iphone:nth-child(1){transform:translateX(-100px) translateY(40px) rotate(-8deg)}
+  .fan .iphone:nth-child(3){transform:translateX(100px) translateY(40px) rotate(8deg)}
 }
 </style>
 </head>
@@ -307,9 +324,9 @@ footer a{text-decoration:none;color:#c1cde0}
     <p class="note"><b>GH₵3 per pupil per term.</b> Every feature, for every school.</p>
   </div>
   <div class="fan" aria-hidden="true">
-    <div class="ph"><img src="img/p-attend.webp" width="600" height="1299" alt=""></div>
-    <div class="ph"><img src="img/p-home.webp" width="600" height="1299" alt=""></div>
-    <div class="ph"><img src="img/p-fees.webp" width="600" height="1299" alt=""></div>
+    <div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-attend.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
+    <div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
+    <div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-fees.webp" width="600" height="1299" alt=""></div><div class="homebar"></div></div></div>
   </div>
 </section>
 
@@ -323,25 +340,22 @@ footer a{text-decoration:none;color:#c1cde0}
     <div class="story-grid">
       <div class="steps" id="steps">
         <div class="rail" aria-hidden="true"><i></i></div>
-        <article class="step" data-shot="0" data-h="7" data-m="30"><time datetime="07:30">7:30</time><h3>Gates open</h3><p>Teachers sign in on their own phones. No computer lab, no queue for the office laptop.</p><div class="m-shot"><img src="img/p-home.webp" width="600" height="1299" loading="lazy" alt="The SchoolBase home screen on a phone."></div></article>
-        <article class="step" data-shot="1" data-h="8" data-m="30"><time datetime="08:30">8:30</time><h3>Registers close</h3><p>A class register takes a minute. Parents of absent pupils get a text straight away.</p><div class="m-shot"><img src="img/p-attend.webp" width="600" height="1299" loading="lazy" alt="The morning register on a phone."></div></article>
-        <article class="step" data-shot="2" data-h="10" data-m="30"><time datetime="10:30">10:30</time><h3>Break</h3><p>Canteen and bus money is ticked off by class or route, with who collected it.</p><div class="m-shot"><img src="img/p-daily.webp" width="600" height="1299" loading="lazy" alt="Canteen and transport payments on a phone."></div></article>
-        <article class="step" data-shot="3" data-h="11" data-m="15"><time datetime="11:15">11:15</time><h3>A parent pays fees</h3><p>Cash or MoMo is recorded in seconds. The receipt prints or goes by WhatsApp, and the parent gets a text.</p><div class="m-shot"><img src="img/p-fees.webp" width="600" height="1299" loading="lazy" alt="The fees page on a phone."></div></article>
-        <article class="step" data-shot="4" data-h="13" data-m="0"><time datetime="13:00">1:00</time><h3>Results to approve</h3><p>The head teacher checks scores and approves report cards before a single one is printed.</p><div class="m-shot"><img src="img/p-reports.webp" width="600" height="1299" loading="lazy" alt="A report card on a phone."></div></article>
-        <article class="step" data-shot="5" data-h="15" data-m="0"><time datetime="15:00">3:00</time><h3>Closing</h3><p>Texts to parents go out, and every cedi in and out is in one list for the proprietor.</p><div class="m-shot"><img src="img/p-messages.webp" width="600" height="1299" loading="lazy" alt="The messages page on a phone."></div></article>
+        <article class="step" data-shot="0" data-h="7" data-m="30"><time datetime="07:30">7:30</time><h3>Gates open</h3><p>Teachers sign in on their own phones. No computer lab, no queue for the office laptop.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" loading="lazy" alt="The SchoolBase home screen on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="1" data-h="8" data-m="30"><time datetime="08:30">8:30</time><h3>Registers close</h3><p>A class register takes a minute. Parents of absent pupils get a text straight away.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-attend.webp" width="600" height="1299" loading="lazy" alt="The morning register on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="2" data-h="10" data-m="30"><time datetime="10:30">10:30</time><h3>Break</h3><p>Canteen and bus money is ticked off by class or route, with who collected it.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-daily.webp" width="600" height="1299" loading="lazy" alt="Canteen and transport payments on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="3" data-h="11" data-m="15"><time datetime="11:15">11:15</time><h3>A parent pays fees</h3><p>Cash or MoMo is recorded in seconds. The receipt prints or goes by WhatsApp, and the parent gets a text.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-fees.webp" width="600" height="1299" loading="lazy" alt="The fees page on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="4" data-h="13" data-m="0"><time datetime="13:00">1:00</time><h3>Results to approve</h3><p>The head teacher checks scores and approves report cards before a single one is printed.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-reports.webp" width="600" height="1299" loading="lazy" alt="A report card on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="5" data-h="15" data-m="0"><time datetime="15:00">3:00</time><h3>Closing</h3><p>Texts to parents go out, and every cedi in and out is in one list for the proprietor.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-messages.webp" width="600" height="1299" loading="lazy" alt="The messages page on a phone."></div><div class="homebar"></div></div></div></div></article>
       </div>
       <div class="stage" aria-hidden="true">
-        <div class="ph" style="position:relative">
-          <div class="clock" id="clock"><span class="hand hh"></span><span class="hand mh"></span></div>
-          <div class="screens" id="screens">
+        <div class="ph-wrap"><div class="clock" id="clock"><span class="hand hh"></span><span class="hand mh"></span></div><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view swap" id="screens">
             <img class="on" src="img/p-home.webp" width="600" height="1299" alt="">
             <img src="img/p-attend.webp" width="600" height="1299" alt="" loading="lazy">
             <img src="img/p-daily.webp" width="600" height="1299" alt="" loading="lazy">
             <img src="img/p-fees.webp" width="600" height="1299" alt="" loading="lazy">
             <img src="img/p-reports.webp" width="600" height="1299" alt="" loading="lazy">
             <img src="img/p-messages.webp" width="600" height="1299" alt="" loading="lazy">
-          </div>
-        </div>
+          </div><div class="homebar"></div></div></div></div>
       </div>
     </div>
   </div>
@@ -389,11 +403,7 @@ footer a{text-decoration:none;color:#c1cde0}
         <div class="mod rv" style="--d:.36s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 19h16"/></svg>Bulk upload from Excel</div>
       </div>
     </div>
-    <div class="duo">
-      <div class="photo rv"><img src="img/photo-ruler.webp" width="700" height="467" loading="lazy" alt="A girl ruling lines in her maths exercise book." style="aspect-ratio:4/5"></div>
-      <div class="ph rv" style="--d:.15s"><img src="img/p-reports.webp" width="600" height="1299" loading="lazy" alt="A report card with scores, positions and GES levels on a phone."></div>
-      <p class="credit">Photo: <a href="https://unsplash.com/photos/a-student-carefully-draws-lines-with-a-ruler-zzcHmwBaG0w">David Geneugelijk</a> on Unsplash</p>
-    </div>
+    <div class="duo rv"><div class="mac"><div class="lid"><span class="cam" aria-hidden="true"></span><div class="disp"><img src="img/d-reports.webp" width="1600" height="1000" loading="lazy" alt="A Basic 4A report card with scores, positions and GES levels on a laptop."></div></div><div class="base" aria-hidden="true"></div></div><div class="iphone"><div class="scr"><div class="sb"><span>1:00</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-reports.webp" width="600" height="1299" loading="lazy" alt="The same report card on a phone."></div><div class="homebar"></div></div></div></div>
   </div>
 </section>
 
