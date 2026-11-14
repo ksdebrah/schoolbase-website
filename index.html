@@ -406,11 +406,20 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 .sbx h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.015em;color:var(--ink,#14233b)}
 .sbx h3{margin:0 0 8px;font-family:var(--display);font-size:21px;line-height:1.25;color:var(--ink,#14233b)}
 .sbx-head p,.sbx p.sbx-p{margin:16px 0 0;font-size:18px;line-height:1.6;color:var(--ink-2,#46536a)}
-.sbx-tabs{display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
-.sbx-tab{position:relative;background:#16181d;border-radius:clamp(14px,2vw,26px);padding:clamp(8px,1.1vw,14px);box-shadow:0 30px 60px -28px rgba(12,26,50,.45),inset 0 0 0 1px rgba(255,255,255,.08)}
-.sbx-tab img{display:block;width:100%;height:auto;border-radius:clamp(6px,.8vw,10px)}
-.sbx-tab::after{content:"";position:absolute;top:50%;right:calc(clamp(8px,1.1vw,14px)/2 - 2px);width:4px;height:4px;margin-top:-2px;border-radius:50%;background:#3a3d44}
-.sbx-tab.up::after{top:calc(clamp(8px,1.1vw,14px)/2 - 2px);right:50%;margin:0 -2px 0 0}
+.sbx-tabs{display:grid;grid-template-columns:1.75fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
+.sbx-tab{position:relative;background:#0b0b0d;border-radius:4.2%/6%;padding:2.6%;box-shadow:0 0 0 1.5px #c9ccd1,0 0 0 3px #e6e8eb,0 34px 60px -30px rgba(12,26,50,.5)}
+.sbx-tab img{display:block;width:100%;height:auto;border-radius:1.4%/2%}
+.sbx-tab::before{content:"";position:absolute;left:50%;top:1.05%;width:.6%;aspect-ratio:1;margin-left:-.3%;border-radius:50%;background:#2a2d33;box-shadow:inset 0 0 0 1px #3d4148}
+.sbx-tab.up{border-radius:6%/4%;padding:3.6%}
+.sbx-tab.up img{border-radius:2.2%/1.4%}
+.sbx-tab.up::before{top:1.5%;width:.9%;margin-left:-.45%}
+.sbx-iph{position:relative;background:#0b0b0d;border-radius:16%/7.4%;padding:3.2%;box-shadow:0 0 0 1.5px #c9ccd1,0 0 0 3px #e6e8eb,0 20px 40px -18px rgba(12,26,50,.55)}
+.sbx-iph .scr{position:relative;overflow:hidden;border-radius:13%/6%;background:#fff}
+.sbx-iph .scr{container-type:inline-size}
+.sbx-iph .bar{display:flex;justify-content:space-between;align-items:center;aspect-ratio:600/64;padding:0 11% 0 12%;font:600 4.6cqw/1 -apple-system,system-ui,"Segoe UI",sans-serif;color:#0b0b0b}
+.sbx-iph .bar i{display:block;width:9%;aspect-ratio:2.2;border-radius:3px;background:linear-gradient(90deg,#0b0b0b 0 70%,transparent 70%);opacity:.85}
+.sbx-iph .isl{position:absolute;left:50%;top:1.2%;width:29%;aspect-ratio:3.6;transform:translateX(-50%);border-radius:99px;background:#0b0b0d}
+.sbx-iph img{display:block;width:100%;height:auto}
 .sbx-cap{margin:14px 0 0;font-size:15px;color:var(--ink-3,#6b768a);text-align:center}
 .sbx-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}
 .sbx-list li{position:relative;padding-left:28px;font-size:16px;line-height:1.5;color:var(--ink-2,#46536a)}
@@ -419,9 +428,8 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 .sbx-schools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
 .sbx-school{margin:0}
 .sbx-shot{position:relative;padding:0 0 18% 0}
-.sbx-shot .sbx-tab{width:88%}
-.sbx-ph{position:absolute;right:0;bottom:0;width:30%;background:#16181d;border-radius:clamp(12px,1.6vw,20px);padding:clamp(4px,.5vw,6px);box-shadow:0 18px 36px -16px rgba(12,26,50,.5)}
-.sbx-ph img{display:block;width:100%;height:auto;border-radius:clamp(9px,1.2vw,15px)}
+.sbx-shot .sbx-tab{width:86%}
+.sbx-ph{position:absolute;right:0;bottom:0;width:29%}
 .sbx-school figcaption{margin-top:16px}
 .sbx-school figcaption b{display:block;font-size:18px;color:var(--ink,#14233b)}
 .sbx-school figcaption span{display:block;font-size:15px;color:var(--ink-3,#6b768a)}
@@ -664,23 +672,23 @@ footer nav a{color:var(--ink-2);text-decoration:none}
   <div class="sbx-in">
     <div class="sbx-head"><p class="sbx-eyebrow">Tablets</p><h2 id="tab-h">On a tablet, too</h2><p>SchoolBase looks and works the same on a phone, a laptop or a tablet. A tablet on the bursar's desk keeps fees and receipts in view all day; one in a classroom or at the gate takes the register in seconds.</p></div>
     <div class="sbx-tabs">
-      <figure style="margin:0"><div class="sbx-tab"><img src="img/t-home.webp" width="1600" height="1000" loading="lazy" alt="SchoolBase on a 10-inch tablet held sideways: the welcome banner, today's figures and a tile for every page."></div><figcaption class="sbx-cap">A 10-inch tablet on its side: the full menu, as on a laptop.</figcaption></figure>
-      <figure style="margin:0"><div class="sbx-tab up"><img src="img/t-attend.webp" width="1000" height="1600" loading="lazy" alt="The morning register on an 8-inch tablet held upright, with Present, Late and Absent for each pupil."></div><figcaption class="sbx-cap">An 8-inch tablet upright: the morning register.</figcaption></figure>
+      <figure style="margin:0"><div class="sbx-tab"><img src="img/t-home.webp" width="1770" height="1230" loading="lazy" alt="SchoolBase on an iPad held sideways: the welcome banner, today's figures and a tile for every page."></div><figcaption class="sbx-cap">An iPad on its side: the full menu, as on a laptop.</figcaption></figure>
+      <figure style="margin:0"><div class="sbx-tab up"><img src="img/t-attend.webp" width="1116" height="1700" loading="lazy" alt="The morning register on an iPad mini held upright, with Present, Late and Absent for each pupil."></div><figcaption class="sbx-cap">An iPad mini upright: the morning register.</figcaption></figure>
     </div>
     <ul class="sbx-list">
       <li><b>Nothing to install.</b> It runs in the web browser, and keeps working when the internet drops.</li>
-      <li><b>Budget tablets are enough.</b> Any recent Android tablet, 8 or 10 inches, does the job.</li>
+      <li><b>Any recent tablet will do.</b> An iPad, an iPad mini, or a budget Android tablet of 8 to 11 inches.</li>
       <li><b>A tablet package is coming.</b> Tablets set up for you and locked to your school, with a quick sign-in for staff who share one.</li>
     </ul>
   </div>
 </section>
 <section class="sbx sbx-alt" id="yours" aria-labelledby="yours-h">
   <div class="sbx-in">
-    <div class="sbx-head"><p class="sbx-eyebrow">Your school</p><h2 id="yours-h">Make it your own</h2><p>Every school gets the same complete system, set up the way it already works and dressed in its own crest, motto and colours. Here are three of our sample schools.</p></div>
+    <div class="sbx-head"><p class="sbx-eyebrow">Your school</p><h2 id="yours-h">Make it your own</h2><p>Every school gets the same complete system, set up the way it already works and dressed in its own crest, motto and colours. Here is our sample school in SchoolBase's own colours, and two more set up in green and in wine.</p></div>
     <div class="sbx-schools">
-      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-schoolbase.webp" width="1600" height="1000" loading="lazy" alt="SchoolBase Academy's home page in blue and gold, with its open-book crest."></div><div class="sbx-ph"><img src="img/c-schoolbase-signin.webp" width="600" height="1298" loading="lazy" alt="SchoolBase Academy's own sign-in page on a phone."></div></div><figcaption><b>SchoolBase Academy</b><span>Blue and gold · open-book crest · “Learning made simple”</span></figcaption></figure>
-      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-sunrise.webp" width="1600" height="1000" loading="lazy" alt="Sunrise School's home page in teal and coral, with a rising-sun crest."></div><div class="sbx-ph"><img src="img/c-sunrise-signin.webp" width="600" height="1298" loading="lazy" alt="Sunrise School's own sign-in page on a phone."></div></div><figcaption><b>Sunrise School</b><span>Teal and coral · rising-sun crest · “Rise and Shine”</span></figcaption></figure>
-      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-hillview.webp" width="1600" height="1000" loading="lazy" alt="Hillview Academy's home page in navy and sky blue, with a hills crest."></div><div class="sbx-ph"><img src="img/c-hillview-signin.webp" width="600" height="1298" loading="lazy" alt="Hillview Academy's own sign-in page on a phone."></div></div><figcaption><b>Hillview Academy</b><span>Navy and sky · hills crest · “Climb Higher”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-schoolbase.webp" width="1770" height="1230" loading="lazy" alt="SchoolBase Academy's home page on an iPad, in SchoolBase blue and gold."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-schoolbase-signin.webp" width="600" height="1298" loading="lazy" alt="SchoolBase Academy's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>SchoolBase Academy</b><span>SchoolBase blue and gold, the standard look · open-book crest · “Learning made simple”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-sunrise.webp" width="1770" height="1230" loading="lazy" alt="Sunrise School's home page on an iPad, in forest green and amber."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-sunrise-signin.webp" width="600" height="1298" loading="lazy" alt="Sunrise School's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>Sunrise School</b><span>Forest green and amber · rising-sun crest · “Rise and Shine”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-demo.webp" width="1770" height="1230" loading="lazy" alt="Bright Future School's home page on an iPad, in wine and gold."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-demo-signin.webp" width="600" height="1298" loading="lazy" alt="Bright Future School's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>Bright Future School</b><span>Wine and gold · torch crest · “Light, Learning, Service”</span></figcaption></figure>
     </div>
     <div class="sbx-cols">
       <div class="sbx-card"><h3>What we set up for your school</h3>
