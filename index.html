@@ -443,25 +443,93 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 .sbx-steps b{color:var(--ink,#14233b)}
 @media (max-width:900px){.sbx{padding:72px 0}.sbx-tabs,.sbx-cols{grid-template-columns:1fr}.sbx-tabs .sbx-tab.up{max-width:420px;margin:0 auto}.sbx-list{grid-template-columns:1fr}.sbx-schools{grid-template-columns:1fr;max-width:560px}}
 </style>
+
+<style id="pbx">
+/* Inner pages and the shared footer (tools/sitepages.py). Uses each design's own colours and fonts. */
+.pb-page{padding-top:var(--pb-top,0)}
+.pb-in{max-width:var(--wrap,1180px);margin:0 auto;padding:0 24px}
+.pb-hero{padding:72px 0 40px;background:var(--pb-wash,#f3f6fa)}
+.pb-eyebrow{margin:0 0 12px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue,#2b4f80)}
+.pb-hero h1{margin:0;max-width:22ch;font-family:var(--display,var(--serif));font-weight:700;font-size:clamp(34px,4.6vw,56px);line-height:1.08;letter-spacing:-.015em;color:var(--ink,#14233b)}
+.pb-hero .pb-lede{margin:18px 0 0;max-width:60ch;font-size:clamp(18px,1.5vw,20px);line-height:1.6;color:var(--ink-2,#46536a)}
+.pb-sec{padding:64px 0}
+.pb-sec+.pb-sec{padding-top:0}
+.pb-sec h2{margin:0 0 14px;font-family:var(--display,var(--serif));font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;color:var(--ink,#14233b)}
+.pb-sec h3{margin:0 0 8px;font-family:var(--display,var(--serif));font-size:20px;line-height:1.3;color:var(--ink,#14233b)}
+.pb-sec p,.pb-sec li{font-size:17px;line-height:1.65;color:var(--ink-2,#46536a)}
+.pb-sec p{margin:0 0 14px}
+.pb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:28px}
+.pb-card{background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:16px;padding:26px}
+.pb-card p:last-child{margin-bottom:0}
+.pb-statement{max-width:64ch;font-size:clamp(20px,2vw,24px)!important;line-height:1.55!important;color:var(--ink,#14233b)!important}
+.pb-team{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-top:28px}
+.pb-person{margin:0;text-align:center}
+.pb-person .pb-face{width:132px;height:132px;margin:0 auto 14px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--blue,#2b4f80);color:#fff;font:700 40px/1 var(--display,var(--serif))}
+.pb-person b{display:block;font-size:18px;color:var(--ink,#14233b)}
+.pb-person span{display:block;font-size:15px;color:var(--ink-3,#6b768a)}
+.pb-note{padding:18px 20px;border-radius:14px;background:var(--pb-wash,#f3f6fa);border:1px dashed var(--line,#dbe2ec)}
+.pb-two{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.pb-aside{position:sticky;top:96px}
+.pb-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.pb-steps li{display:grid;grid-template-columns:34px 1fr;gap:12px}
+.pb-steps li>span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--gold,#f0bf5a);color:#14233b;font:700 15px/1 system-ui,sans-serif}
+.pb-steps b{display:block;color:var(--ink,#14233b)}
+/* forms */
+.pb-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:18px;padding:clamp(20px,3vw,32px)}
+.pb-field{display:grid;gap:6px;min-width:0;align-content:start}
+.pb-field.full,.pb-form .full{grid-column:1/-1}
+.pb-field label{font-weight:650;font-size:16px;color:var(--ink,#14233b)}
+.pb-field label small{font-weight:400;color:var(--ink-3,#6b768a);font-size:15px}
+.pb-field input,.pb-field select,.pb-field textarea{width:100%;min-height:48px;padding:11px 14px;border:1.5px solid #c4cdda;border-radius:12px;background:#fff;color:var(--ink,#14233b);font:16px/1.4 var(--body,var(--sans,system-ui))}
+.pb-field textarea{min-height:120px;resize:vertical}
+.pb-field input:focus,.pb-field select:focus,.pb-field textarea:focus{outline:3px solid rgba(43,79,128,.28);outline-offset:1px;border-color:var(--blue,#2b4f80)}
+.pb-field [aria-invalid="true"]{border-color:#b42318}
+.pb-hint,.pb-sec .pb-hint{margin:0;font-size:15px;line-height:1.5;color:var(--ink-3,#6b768a)}
+.pb-err,.pb-sec .pb-err{margin:0;padding:12px 14px;border-radius:12px;background:#fdecea;color:#7a1a12;font-size:16px}
+.pb-err:empty{display:none}
+.pb-err::before{content:"Couldn't send: ";font-weight:700}
+.pb-hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+.pb-form button[type=submit]{justify-self:start;min-height:48px}
+.pb-form button[disabled]{opacity:.65;cursor:progress}
+.pb-ok{background:#fff;border:1px solid var(--line,#dbe2ec);border-left:6px solid #1f7a4d;border-radius:18px;padding:clamp(22px,3vw,34px)}
+.pb-ok h2{margin:0 0 10px}
+.pb-ok .pb-ref{font:700 20px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;color:var(--ink,#14233b)}
+/* legal pages */
+.pb-prose{max-width:74ch}
+.pb-prose h2{margin:44px 0 12px;font-size:clamp(22px,2.2vw,28px)}
+.pb-prose h2:first-child{margin-top:0}
+.pb-prose ul{padding-left:22px;margin:0 0 14px}
+.pb-prose li{margin:4px 0}
+.pb-prose a{color:var(--blue,#2b4f80)}
+.pb-toc{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 36px;padding:0;list-style:none}
+.pb-toc a{color:var(--blue,#2b4f80);font-size:16px}
+.pb-meta{font-size:15px!important;color:var(--ink-3,#6b768a)!important}
+/* footer */
+footer.pbf{padding:56px 0 40px}
+.pbf-in{max-width:var(--wrap,1180px);margin:0 auto;padding:0 24px}
+.pbf-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+.pbf .brand{font-size:20px}
+.pbf-about p{margin:14px 0 0;max-width:36ch;font-size:15px;line-height:1.6}
+.pbf h2{margin:0 0 12px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:inherit;opacity:.75}
+.pbf ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.pbf a{color:inherit;text-decoration:none}
+.pbf ul a{display:inline-block;padding:8px 0;font-size:16px}
+.pbf a:hover{text-decoration:underline}
+.pbf-base{margin:36px 0 0;padding-top:20px;border-top:1px solid currentColor;border-color:rgba(127,140,160,.3);font-size:14px;opacity:.85}
+@media (max-width:900px){.pb-two{grid-template-columns:1fr}.pb-aside{position:static}.pbf-top{grid-template-columns:1fr 1fr}.pbf-about{grid-column:1/-1}}
+@media (max-width:560px){.pb-form{grid-template-columns:1fr}.pb-hero{padding:48px 0 28px}.pb-sec{padding:44px 0}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#main" aria-label="PupilBook home">
+    <a class="brand" href="./" aria-label="PupilBook home">
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#2B4F80"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#5B7FB0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a>
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#day">A school day</a>
-      <a href="#features">Features</a>
-      <a href="#roles">Who uses it</a>
-      <a href="#switch">Switching</a>
-      <a href="#yours">Your school</a><a href="#pricing">Pricing</a>
-      <a href="#faq">Questions</a>
-      <a class="nav-signin" href="https://app.pupilbook.com">Sign in to PupilBook</a>
-    </nav>
+    <nav class="nav" id="nav" aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a><a href="about/">About</a><a href="https://demo.pupilbook.com">Try the demo</a><a class="nav-signin" href="https://app.pupilbook.com">Sign in to PupilBook</a></nav>
     <a class="signin" href="https://app.pupilbook.com">Sign in</a>
-    <a class="btn btn-primary" href="#contact">Book a demo</a>
+    <a class="btn btn-primary" href="get-started/">Get started</a>
     <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
@@ -771,11 +839,13 @@ footer nav a{color:var(--ink-2);text-decoration:none}
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <a class="brand" href="#main" aria-label="PupilBook, back to top"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#2B4F80"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#5B7FB0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a>
-    <span>School management for basic schools in Ghana. © <span id="yr">2026</span>. Photos from <a href="https://unsplash.com" style="color:inherit">Unsplash</a>.</span>
-    <nav aria-label="Footer"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a><a href="#contact">Contact</a><a href="https://app.pupilbook.com">Sign in</a></nav>
+<footer class="pbf">
+  <div class="pbf-in">
+    <div class="pbf-top">
+      <div class="pbf-about"><a class="brand" href="./" aria-label="PupilBook home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#2B4F80"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#5B7FB0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a><p>School management for private basic schools in Ghana: fees, registers, report cards and texts to parents.</p><p><a href="mailto:hello@pupilbook.com">hello@pupilbook.com</a></p></div>
+      <div class="pbf-col"><h2>PupilBook</h2><ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">Questions</a></li><li><a href="https://demo.pupilbook.com">Try the demo</a></li><li><a href="https://app.pupilbook.com">Sign in</a></li></ul></div><div class="pbf-col"><h2>Company</h2><ul><li><a href="about/">About us</a></li><li><a href="get-started/">Get started</a></li><li><a href="partners/">Become a sales partner</a></li><li><a href="#contact">Contact</a></li></ul></div><div class="pbf-col"><h2>Your data</h2><ul><li><a href="privacy/">Privacy policy</a></li><li><a href="terms/">Terms of service</a></li><li><a href="data-deletion/">Delete your data</a></li></ul></div>
+    </div>
+    <p class="pbf-base">© <span id="yr">2026</span> PupilBook. Photos from <a href="https://unsplash.com">Unsplash</a>.</p>
   </div>
 </footer>
 
@@ -787,7 +857,7 @@ var CONTACT={whatsapp:"",phone:"",email:"hello@pupilbook.com"};
     ph:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
     em:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>'};
   function digits(n){var d=String(n).replace(/\D/g,"");return /^0\d{9}$/.test(d)?"233"+d.slice(1):d;}
-  var w=document.getElementById("ways"),h="";
+  var w=document.getElementById("ways"),h='<a class="way" href="get-started/">'+ic.em+'<span><b>Fill in a short form</b><span>We\'ll call or email you back</span></span></a>';
   if(CONTACT.whatsapp)h+='<a class="way" href="https://wa.me/'+digits(CONTACT.whatsapp)+'?text='+encodeURIComponent("Hello PupilBook, I'd like to book a demo for our school.")+'">'+ic.wa+'<span><b>WhatsApp us</b><span>'+CONTACT.whatsapp+'</span></span></a>';
   if(CONTACT.phone)h+='<a class="way" href="tel:'+CONTACT.phone.replace(/\s/g,"")+'">'+ic.ph+'<span><b>Call us</b><span>'+CONTACT.phone+'</span></span></a>';
   if(CONTACT.email)h+='<a class="way" href="mailto:'+CONTACT.email+'?subject=PupilBook%20demo">'+ic.em+'<span><b>Email us</b><span>'+CONTACT.email+'</span></span></a>';

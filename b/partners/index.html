@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Become a PupilBook sales partner · PupilBook</title>
+<meta name="description" content="Help private basic schools in your area move to PupilBook.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z' fill='%232B4F80'/%3E%3Cpath d='M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z' fill='%235B7FB0'/%3E%3Ccircle cx='24' cy='6' r='3.5' fill='%23F0BF5A'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Unbounded";src:url(../fonts/unbounded.woff2) format("woff2");font-weight:200 900;font-display:swap}
+:root{
+  --night:#0d1b30;--night-2:#13284a;--night-line:rgba(255,255,255,.12);
+  --blue:#2b4f80;--sky:#9cc0f0;--gold:#f0bf5a;--gold-2:#f6d58e;
+  --paper:#f6f8fb;--white:#fff;--ink:#0f1c30;--ink-2:#4a576c;--ink-3:#6e798c;--line:#dde3ec;
+  --display:"Unbounded",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);--wrap:1200px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.6 var(--body);color:var(--ink);background:var(--white);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em;line-height:1.08}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:50;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .16s var(--ease),background-color .2s,box-shadow .2s}
+.btn:active{transform:scale(.96)}
+.btn-gold{background:var(--gold);color:var(--night);box-shadow:0 10px 30px -12px rgba(240,191,90,.7)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.btn-dark{background:var(--night);color:#fff}
+@media (hover:hover) and (pointer:fine){.btn-gold:hover{background:var(--gold-2)}.btn-ghost:hover{background:rgba(255,255,255,.14)}.btn-dark:hover{background:var(--night-2)}}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:20;color:#fff;transition:background-color .3s,color .3s,box-shadow .3s}
+.top .wrap{display:flex;align-items:center;gap:22px;height:76px;transition:height .3s var(--ease)}
+.top.solid{background:rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.top.solid .wrap{height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 18px/1 var(--display);letter-spacing:-.03em}
+.brand svg{width:32px;height:32px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{text-decoration:none;font-size:15px;font-weight:550;padding:8px 13px;border-radius:999px;opacity:.85;transition:opacity .2s,background-color .2s}
+@media (hover:hover) and (pointer:fine){.nav a:hover{opacity:1;background:rgba(127,127,127,.14)}}
+.signin{text-decoration:none;font-weight:650;font-size:15px;padding:9px 14px;border-radius:999px;white-space:nowrap}
+.top .btn{min-height:42px;padding:0 18px;font-size:15px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid currentColor;background:transparent;color:inherit;align-items:center;justify-content:center;padding:0;cursor:pointer;-webkit-appearance:none;appearance:none;flex:none;opacity:.9}
+.menu-btn svg{width:22px;height:22px;display:block}
+.menu-btn path{transition:transform .3s var(--ease),opacity .2s;transform-origin:12px 12px}
+.menu-btn[aria-expanded="true"] .l1{transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .l2{opacity:0}
+.menu-btn[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
+.progress{position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+
+/* hero */
+.hero{position:relative;background:var(--night);color:#fff;padding:136px 0 0;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;left:50%;top:58%;width:1100px;height:1100px;transform:translate(-50%,0);border-radius:50%;background:radial-gradient(closest-side,rgba(240,191,90,.22),rgba(240,191,90,0) 70%);z-index:-1}
+.hero .grid-lines{position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(var(--night-line) 1px,transparent 1px);background-size:100% 44px;mask-image:linear-gradient(transparent,#000 30%,#000 60%,transparent)}
+.hero-copy{text-align:center;max-width:980px;margin:0 auto}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--gold-2);padding:7px 14px;border-radius:999px;background:rgba(240,191,90,.1);box-shadow:inset 0 0 0 1px rgba(240,191,90,.3)}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(240,191,90,.25)}
+.hero h1{font-size:clamp(38px,5.2vw,72px);font-weight:700;margin-top:26px}
+.hero h1 .w{display:inline-block;white-space:nowrap}
+.hero h1 .w>span{display:inline-block}
+.hero h1 .gold{color:var(--gold)}
+.hero .lede{max-width:640px;margin:26px auto 0;font-size:clamp(17px,1.5vw,20px);color:#c9d4e6}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.hero .note{margin-top:20px;font-size:14.5px;color:#9fb0c8}
+.hero .note b{color:#fff;font-weight:650}
+.fan{position:relative;height:520px;margin-top:64px;display:flex;justify-content:center;align-items:flex-start;perspective:1200px}
+.fan .iphone{position:absolute;top:0;--w:250px}
+.fan .iphone:nth-child(1){transform:translateX(-235px) translateY(70px) rotate(-8deg)}
+.fan .iphone:nth-child(2){z-index:2;--w:280px}
+.fan .iphone:nth-child(3){transform:translateX(235px) translateY(70px) rotate(8deg)}
+
+/* load sequence: one orchestrated moment */
+@media (prefers-reduced-motion:no-preference){
+  .hero .kicker,.hero .lede,.hero .ctas,.hero .note{animation:up .9s var(--ease) both}
+  .hero .kicker{animation-delay:.05s}.hero .lede{animation-delay:.55s}.hero .ctas{animation-delay:.68s}.hero .note{animation-delay:.8s}
+  .hero h1 .w>span{animation:word 1s var(--ease) both;animation-delay:calc(.15s + var(--i)*.06s)}
+  .fan .iphone:nth-child(2){animation:rise 1.2s var(--ease) both .55s}
+  .fan .iphone:nth-child(1){animation:fanL 1.3s var(--ease) both .75s}
+  .fan .iphone:nth-child(3){animation:fanR 1.3s var(--ease) both .75s}
+  @keyframes up{from{opacity:0;transform:translateY(18px)}}
+  @keyframes word{from{opacity:0;transform:translateY(.55em) rotate(3deg);filter:blur(6px)}}
+  @keyframes rise{from{opacity:0;transform:translateY(120px)}}
+  @keyframes fanL{from{opacity:0;transform:translateX(0) translateY(140px) rotate(0)}}
+  @keyframes fanR{from{opacity:0;transform:translateX(0) translateY(140px) rotate(0)}}
+}
+
+/* ticker */
+.ticker{background:var(--gold);color:var(--night);overflow:hidden;white-space:nowrap;padding:16px 0;font:600 17px/1 var(--display);letter-spacing:-.01em}
+.ticker-track{display:inline-flex;gap:0;animation:tick 38s linear infinite}
+.ticker span{display:inline-flex;align-items:center;gap:22px;padding-right:22px}
+.ticker svg{width:20px;height:20px;flex:none}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (hover:hover){.ticker:hover .ticker-track{animation-play-state:paused}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+/* reveals */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* section basics */
+.sec{padding:120px 0}
+.eyebrow{font-weight:650;font-size:15px;color:var(--blue);margin-bottom:14px}
+.h2{font-size:clamp(32px,4.2vw,56px)}
+.sub{margin-top:18px;font-size:19px;color:var(--ink-2);max-width:58ch}
+
+/* story: a school day with a sticky phone */
+.story{background:var(--paper)}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:80px;margin-top:64px}
+.steps{position:relative;padding-left:44px}
+.rail{position:absolute;left:12px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.rail i{position:absolute;inset:0;background:linear-gradient(var(--blue),var(--gold));transform-origin:50% 0;transform:scaleY(var(--sp,0))}
+.step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;position:relative;opacity:.32;transition:opacity .5s var(--ease)}
+.step.on{opacity:1}
+.step::before{content:"";position:absolute;left:-41px;top:50%;width:21px;height:21px;margin-top:-58px;border-radius:50%;background:var(--paper);border:3px solid var(--line);transition:border-color .4s,background-color .4s,transform .4s var(--ease)}
+.step.on::before{border-color:var(--blue);background:var(--gold);transform:scale(1.15)}
+.step time{font:700 clamp(40px,4vw,56px)/1 var(--display);color:var(--blue);letter-spacing:-.03em}
+.step h3{font-size:24px;margin:14px 0 10px}
+.step p{font-size:18px;color:var(--ink-2);max-width:42ch}
+.step .m-shot{display:none}
+.stage{position:sticky;top:96px;height:calc(100vh - 128px);display:flex;align-items:center;justify-content:center}
+.stage .ph-wrap{position:relative}
+.stage .iphone{--w:300px}
+.clock{position:absolute;left:-62px;top:12%;width:108px;height:108px;border-radius:50%;background:#fff;box-shadow:0 18px 40px -16px rgba(13,27,48,.35),inset 0 0 0 1px var(--line);z-index:3}
+.clock::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--night)}
+.clock .hand{position:absolute;left:50%;bottom:50%;width:4px;margin-left:-2px;border-radius:4px;transform-origin:50% 100%;transition:transform .9s var(--ease)}
+.clock .hh{height:26px;background:var(--night);transform:rotate(var(--hh,0deg))}
+.clock .mh{height:38px;width:3px;margin-left:-1.5px;background:var(--gold);transform:rotate(var(--mh,0deg))}
+.clock .tick{position:absolute;left:50%;top:7px;width:2px;height:8px;margin-left:-1px;background:var(--ink-3);transform-origin:50% 47px;border-radius:2px}
+
+/* photo band with parallax */
+.band{position:relative;height:min(78vh,720px);overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.band img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;transform:translateY(var(--py,0px));will-change:transform}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,27,48,0) 30%,rgba(13,27,48,.85))}
+.band .wrap{position:relative;z-index:1;padding-bottom:72px;width:100%}
+.band h2{font-size:clamp(34px,5vw,68px);max-width:16ch}
+.band .credit{margin-top:18px;font-size:13px;color:#c9d4e6}
+
+/* made for ghana */
+.gh{background:var(--night);color:#fff}
+.gh .eyebrow{color:var(--gold-2)}
+.gh .sub{color:#c1cde0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:56px}
+.card{position:relative;padding:30px 28px 32px;border-radius:22px;background:var(--night-2);box-shadow:inset 0 0 0 1px var(--night-line);overflow:hidden;transition:transform .5s var(--ease),box-shadow .3s}
+.card::before{content:"";position:absolute;inset:auto -40% -60% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(closest-side,rgba(240,191,90,.18),transparent);opacity:0;transition:opacity .4s}
+@media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px rgba(240,191,90,.4)}.card:hover::before{opacity:1}}
+.card svg{width:30px;height:30px;color:var(--gold);margin-bottom:22px}
+.card h3{font-size:20px;line-height:1.25;margin-bottom:10px}
+.card p{color:#b8c5da;font-size:16px}
+
+/* modules */
+.mods .h2{font-size:clamp(30px,3.3vw,44px)}
+.mods{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:center}
+.mod-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:36px}
+.mod{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--paper);font-weight:600;font-size:15.5px}
+.mod svg{width:22px;height:22px;color:var(--blue);flex:none}
+.duo{position:relative;padding:0 40px 60px 0}
+.duo .iphone{position:absolute;right:0;bottom:0;--w:clamp(120px,13vw,190px)}
+
+/* moving over */
+.move{background:var(--paper)}
+.path{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:64px;list-style:none;padding:0}
+.path::before{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:var(--line);border-radius:3px}
+.path::after{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:var(--blue);border-radius:3px;transform-origin:0 50%;transform:scaleX(0);transition:transform 1.6s var(--ease) .2s}
+.path.in::after{transform:scaleX(1)}
+.path li{position:relative}
+.path .n{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:inset 0 0 0 3px var(--line);font:700 20px/1 var(--display);color:var(--blue);transition:box-shadow .5s,background-color .5s,color .5s;transition-delay:var(--d,0s)}
+.path.in .n{box-shadow:inset 0 0 0 3px var(--blue);background:var(--blue);color:#fff}
+.path h3{font-size:20px;margin:24px 0 8px;line-height:1.25}
+.path p{color:var(--ink-2);font-size:16px}
+
+/* pricing */
+.price{background:var(--night);color:#fff;border-radius:36px;padding:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;position:relative;overflow:hidden}
+.price::before{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(156,192,240,.18),transparent)}
+.price .eyebrow{color:var(--gold-2)}
+.big{font:800 clamp(80px,11vw,150px)/.85 var(--display);letter-spacing:-.05em;color:var(--gold);margin:18px 0 10px}
+.price .per{font-size:18px;color:#c1cde0}
+.price ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.price li{display:flex;gap:12px;color:#e3e9f3}
+.price li svg{width:22px;height:22px;color:var(--gold);flex:none;margin-top:2px}
+.calc{position:relative;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--night-line);border-radius:26px;padding:40px}
+.calc label{font:600 20px/1.3 var(--display)}
+.calc .count{font:700 clamp(28px,3vw,36px)/1 var(--display);color:#fff;margin-top:18px}
+.calc input{width:100%;margin:22px 0 6px;accent-color:var(--gold);height:30px}
+.calc .row{display:flex;justify-content:space-between;font-size:14px;color:#9fb0c8}
+.calc .total{margin-top:34px;padding-top:24px;border-top:1px solid var(--night-line)}
+.calc .total b{display:block;font:800 clamp(44px,5vw,64px)/1 var(--display);letter-spacing:-.03em}
+.calc .total span{display:block;color:#c1cde0;margin-top:8px}
+
+/* faq */
+.faq{max-width:860px;margin:48px auto 0}
+.faq details{border-bottom:1px solid var(--line);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:26px 0;font:600 19px/1.35 var(--display);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{position:relative;flex:none;width:32px;height:32px;border-radius:50%;background:var(--paper)}
+.faq .pm::before,.faq .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease)}
+.faq .pm::after{transform:rotate(90deg)}
+.faq details[open] .pm::after{transform:rotate(0)}
+.faq .ans{padding:0 0 26px;color:var(--ink-2);max-width:66ch}
+
+/* final cta */
+.final{background:var(--night);color:#fff;overflow:hidden}
+.final .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:center}
+.final .photo{border-radius:28px;overflow:hidden;transform:rotate(-2deg)}
+.final .photo img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.final .credit{font-size:12.5px;color:#9fb0c8;margin-top:12px}
+.final h2{font-size:clamp(34px,4.6vw,60px)}
+.final .sub{color:#c1cde0}
+.ways{display:grid;gap:12px;margin-top:32px;max-width:520px}
+.way{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--night-line);text-decoration:none;color:#fff}
+.way svg{width:26px;height:26px;color:var(--gold);flex:none}
+.way b{display:block;font:600 17px/1.3 var(--display)}
+.way span span{display:block;color:#b8c5da;font-size:15px}
+
+footer{background:var(--night);color:#9fb0c8;font-size:15px;border-top:1px solid var(--night-line)}
+footer .wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding-top:34px;padding-bottom:44px}
+footer .brand{color:#fff;font-size:16px}footer .brand svg{width:26px;height:26px}
+footer nav{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+footer a{text-decoration:none;color:#c1cde0}
+
+
+/* devices: iPhone with Dynamic Island, MacBook with notch */
+.iphone{--w:280px;position:relative;width:var(--w);aspect-ratio:393/852;border-radius:calc(var(--w)*.165);padding:calc(var(--w)*.032);background:linear-gradient(150deg,#4a4e57 0%,#1b1d22 35%,#121417 65%,#3a3d45 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 0 0 1px #0a0b0d,0 50px 90px -40px rgba(18,29,47,.55),0 24px 40px -24px rgba(18,29,47,.35);flex:none}
+.iphone::before,.iphone::after{content:"";position:absolute;width:3px;border-radius:2px;background:#2a2d33}
+.iphone::before{left:-3px;top:22%;height:7%;box-shadow:0 calc(var(--w)*.14) 0 #2a2d33,0 calc(var(--w)*.28) 0 #2a2d33}
+.iphone::after{right:-3px;top:30%;height:11%}
+.iphone .scr{position:relative;width:100%;height:100%;border-radius:calc(var(--w)*.135);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.iphone .sb{position:relative;flex:none;height:calc(var(--w)*.135);display:flex;align-items:center;justify-content:space-between;padding:calc(var(--w)*.015) calc(var(--w)*.085) 0;font:600 calc(var(--w)*.05)/1 -apple-system,"SF Pro Text",system-ui,sans-serif;color:#0b0b0b;background:#fff}
+.iphone .sb .ic{display:flex;gap:calc(var(--w)*.016);align-items:center}
+.iphone .sb svg{height:calc(var(--w)*.04);width:auto;display:block}
+.iphone .island{position:absolute;top:calc(var(--w)*.03);left:50%;width:calc(var(--w)*.32);height:calc(var(--w)*.095);margin-left:calc(var(--w)*-.16);border-radius:999px;background:#000;z-index:3}
+.iphone .island::after{content:"";position:absolute;right:18%;top:50%;width:calc(var(--w)*.03);height:calc(var(--w)*.03);margin-top:calc(var(--w)*-.015);border-radius:50%;background:radial-gradient(circle at 35% 35%,#2b3a55,#05070b 70%)}
+.iphone .view{position:relative;flex:1;overflow:hidden}
+.iphone .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:0}
+.iphone .homebar{position:absolute;left:50%;bottom:calc(var(--w)*.022);width:calc(var(--w)*.36);height:calc(var(--w)*.016);margin-left:calc(var(--w)*-.18);border-radius:999px;background:rgba(0,0,0,.8);z-index:3}
+.mac{position:relative;width:100%;margin:0 auto}
+.mac .lid{position:relative;padding:2.1% 2.1% 2.9%;border-radius:clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px) 0 0;background:#0c0d10;box-shadow:inset 0 0 0 2px #2c2f35,inset 0 0 0 5px #0c0d10,0 0 0 1px #8d929b}
+.mac .cam{position:absolute;top:0;left:50%;width:10%;height:3.2%;margin-left:-5%;background:#0c0d10;border-radius:0 0 8px 8px;z-index:2}
+.mac .cam::after{content:"";position:absolute;left:50%;top:38%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1d2a3e}
+.mac .disp{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:4px 4px 2px 2px;background:#fff}
+.mac .disp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.mac .base{position:relative;width:112%;left:-6%;height:clamp(8px,1.3vw,16px);background:linear-gradient(#e7e9ed,#c3c7ce 55%,#9ea3ab);border-radius:2px 2px 14px 14px;box-shadow:0 30px 50px -24px rgba(18,29,47,.45)}
+.mac .base::before{content:"";position:absolute;left:50%;top:0;width:15%;height:45%;margin-left:-7.5%;background:linear-gradient(#b9bdc4,#d4d7dc);border-radius:0 0 8px 8px}
+.swap img{opacity:0;transform:scale(1.03);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.swap img.on{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1080px){
+  .nav{display:none}.top .btn{display:none}
+  .menu-btn{display:inline-flex}
+  .signin{margin-left:auto}
+  .nav.open{display:flex;position:absolute;left:12px;right:12px;top:70px;flex-direction:column;background:#fff;color:var(--ink);padding:10px;border-radius:18px;box-shadow:0 30px 60px -20px rgba(13,27,48,.45)}
+  .nav.open a{padding:14px 12px;font-size:17px;opacity:1}
+  .story-grid{grid-template-columns:minmax(0,1fr) 340px;gap:48px}
+  .stage .iphone{--w:260px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  .hero{padding-top:120px}
+  .fan{height:400px}
+  .fan .iphone{--w:180px}.fan .iphone:nth-child(2){--w:200px}
+  .fan .iphone:nth-child(1){transform:translateX(-130px) translateY(50px) rotate(-8deg)}
+  .fan .iphone:nth-child(3){transform:translateX(130px) translateY(50px) rotate(8deg)}
+  .story-grid{grid-template-columns:1fr;margin-top:40px}
+  .stage{display:none}
+  .steps{padding-left:36px}
+  .step{min-height:0;opacity:1;padding:28px 0}
+  .step::before{top:42px;margin-top:0}
+  .step .m-shot{display:block;margin-top:24px}
+  .step .m-shot .iphone{--w:min(56vw,240px)}
+  .mods,.final .wrap,.price{grid-template-columns:1fr}
+  .duo{padding:0 24px 48px 0}
+  .duo .iphone{--w:30vw}
+  .path{grid-template-columns:1fr 1fr}.path::before,.path::after{display:none}
+  .price{padding:40px 28px;border-radius:28px}
+  .calc{padding:28px}
+  .sec{padding:84px 0}
+  .final .photo{max-width:340px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .brand{font-size:16px}
+  .cards,.mod-list,.path{grid-template-columns:1fr}
+  .hero .ctas .btn{flex:1 1 100%}
+  .fan{height:330px}
+  .fan .iphone{--w:150px}.fan .iphone:nth-child(2){--w:168px}
+  .fan .iphone:nth-child(1){transform:translateX(-100px) translateY(40px) rotate(-8deg)}
+  .fan .iphone:nth-child(3){transform:translateX(100px) translateY(40px) rotate(8deg)}
+}
+.wm{white-space:nowrap}.wm-p{color:var(--wm-p,#2b4f80)}.wm-b{color:var(--wm-b,#b9860f)}
+.top:not(.solid) .wm,footer .wm{--wm-p:#b4cdf2;--wm-b:#f0bf5a}
+</style>
+<style id="sbx">
+/* Tablets and "Make it your own" (Nov 2026). Pictures are of the sample schools, taken from the app by tools/siteshots.py. */
+.sbx{padding:104px 0}
+.sbx-alt{background:var(--sbx-wash,#f3f6fa)}
+.sbx-in{max-width:1200px;margin:0 auto;padding:0 24px}
+.sbx-head{max-width:760px;margin:0 0 44px}
+.sbx-eyebrow{margin:0 0 10px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue,#2b4f80)}
+.sbx h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.015em;color:var(--ink,#14233b)}
+.sbx h3{margin:0 0 8px;font-family:var(--display);font-size:21px;line-height:1.25;color:var(--ink,#14233b)}
+.sbx-head p,.sbx p.sbx-p{margin:16px 0 0;font-size:18px;line-height:1.6;color:var(--ink-2,#46536a)}
+.sbx-tabs{display:grid;grid-template-columns:1.75fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
+.sbx-tab{position:relative;background:#0b0b0d;border-radius:4.2%/6%;padding:2.6%;box-shadow:0 0 0 1.5px #c9ccd1,0 0 0 3px #e6e8eb,0 34px 60px -30px rgba(12,26,50,.5)}
+.sbx-tab img{display:block;width:100%;height:auto;border-radius:1.4%/2%}
+.sbx-tab::before{content:"";position:absolute;left:50%;top:1.05%;width:.6%;aspect-ratio:1;margin-left:-.3%;border-radius:50%;background:#2a2d33;box-shadow:inset 0 0 0 1px #3d4148}
+.sbx-tab.up{border-radius:6%/4%;padding:3.6%}
+.sbx-tab.up img{border-radius:2.2%/1.4%}
+.sbx-tab.up::before{top:1.5%;width:.9%;margin-left:-.45%}
+.sbx-iph{position:relative;background:#0b0b0d;border-radius:16%/7.4%;padding:3.2%;box-shadow:0 0 0 1.5px #c9ccd1,0 0 0 3px #e6e8eb,0 20px 40px -18px rgba(12,26,50,.55)}
+.sbx-iph .scr{position:relative;overflow:hidden;border-radius:13%/6%;background:#fff}
+.sbx-iph .scr{container-type:inline-size}
+.sbx-iph .bar{display:flex;justify-content:space-between;align-items:center;aspect-ratio:600/64;padding:0 11% 0 12%;font:600 4.6cqw/1 -apple-system,system-ui,"Segoe UI",sans-serif;color:#0b0b0b}
+.sbx-iph .bar i{display:block;width:9%;aspect-ratio:2.2;border-radius:3px;background:linear-gradient(90deg,#0b0b0b 0 70%,transparent 70%);opacity:.85}
+.sbx-iph .isl{position:absolute;left:50%;top:1.2%;width:29%;aspect-ratio:3.6;transform:translateX(-50%);border-radius:99px;background:#0b0b0d}
+.sbx-iph img{display:block;width:100%;height:auto}
+.sbx-cap{margin:14px 0 0;font-size:15px;color:var(--ink-3,#6b768a);text-align:center}
+.sbx-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}
+.sbx-list li{position:relative;padding-left:28px;font-size:16px;line-height:1.5;color:var(--ink-2,#46536a)}
+.sbx-list li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--blue,#2b4f80) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.5l4.5-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.sbx-list b{color:var(--ink,#14233b)}
+.sbx-schools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.sbx-school{margin:0}
+.sbx-shot{position:relative;padding:0 0 18% 0}
+.sbx-shot .sbx-tab{width:86%}
+.sbx-ph{position:absolute;right:0;bottom:0;width:29%}
+.sbx-school figcaption{margin-top:16px}
+.sbx-school figcaption b{display:block;font-size:18px;color:var(--ink,#14233b)}
+.sbx-school figcaption span{display:block;font-size:15px;color:var(--ink-3,#6b768a)}
+.sbx-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);margin-top:64px}
+.sbx-card{background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:16px;padding:28px}
+.sbx-card .sbx-list{grid-template-columns:1fr;margin-top:16px}
+.sbx-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
+.sbx-steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;font-size:16px;line-height:1.5;color:var(--ink-2,#46536a)}
+.sbx-steps li span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold,#f0bf5a);color:#14233b;font:700 15px/1 system-ui,sans-serif}
+.sbx-steps b{color:var(--ink,#14233b)}
+@media (max-width:900px){.sbx{padding:72px 0}.sbx-tabs,.sbx-cols{grid-template-columns:1fr}.sbx-tabs .sbx-tab.up{max-width:420px;margin:0 auto}.sbx-list{grid-template-columns:1fr}.sbx-schools{grid-template-columns:1fr;max-width:560px}}
+</style>
+
+<style id="pbx">
+/* Inner pages and the shared footer (tools/sitepages.py). Uses each design's own colours and fonts. */
+.pb-page{padding-top:var(--pb-top,0)}
+.pb-page{--pb-top:64px}
+.pb-in{max-width:var(--wrap,1180px);margin:0 auto;padding:0 24px}
+.pb-hero{padding:72px 0 40px;background:var(--pb-wash,#f3f6fa)}
+.pb-eyebrow{margin:0 0 12px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue,#2b4f80)}
+.pb-hero h1{margin:0;max-width:22ch;font-family:var(--display,var(--serif));font-weight:700;font-size:clamp(34px,4.6vw,56px);line-height:1.08;letter-spacing:-.015em;color:var(--ink,#14233b)}
+.pb-hero .pb-lede{margin:18px 0 0;max-width:60ch;font-size:clamp(18px,1.5vw,20px);line-height:1.6;color:var(--ink-2,#46536a)}
+.pb-sec{padding:64px 0}
+.pb-sec+.pb-sec{padding-top:0}
+.pb-sec h2{margin:0 0 14px;font-family:var(--display,var(--serif));font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;color:var(--ink,#14233b)}
+.pb-sec h3{margin:0 0 8px;font-family:var(--display,var(--serif));font-size:20px;line-height:1.3;color:var(--ink,#14233b)}
+.pb-sec p,.pb-sec li{font-size:17px;line-height:1.65;color:var(--ink-2,#46536a)}
+.pb-sec p{margin:0 0 14px}
+.pb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:28px}
+.pb-card{background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:16px;padding:26px}
+.pb-card p:last-child{margin-bottom:0}
+.pb-statement{max-width:64ch;font-size:clamp(20px,2vw,24px)!important;line-height:1.55!important;color:var(--ink,#14233b)!important}
+.pb-team{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-top:28px}
+.pb-person{margin:0;text-align:center}
+.pb-person .pb-face{width:132px;height:132px;margin:0 auto 14px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--blue,#2b4f80);color:#fff;font:700 40px/1 var(--display,var(--serif))}
+.pb-person b{display:block;font-size:18px;color:var(--ink,#14233b)}
+.pb-person span{display:block;font-size:15px;color:var(--ink-3,#6b768a)}
+.pb-note{padding:18px 20px;border-radius:14px;background:var(--pb-wash,#f3f6fa);border:1px dashed var(--line,#dbe2ec)}
+.pb-two{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.pb-aside{position:sticky;top:96px}
+.pb-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.pb-steps li{display:grid;grid-template-columns:34px 1fr;gap:12px}
+.pb-steps li>span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--gold,#f0bf5a);color:#14233b;font:700 15px/1 system-ui,sans-serif}
+.pb-steps b{display:block;color:var(--ink,#14233b)}
+/* forms */
+.pb-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:18px;padding:clamp(20px,3vw,32px)}
+.pb-field{display:grid;gap:6px;min-width:0;align-content:start}
+.pb-field.full,.pb-form .full{grid-column:1/-1}
+.pb-field label{font-weight:650;font-size:16px;color:var(--ink,#14233b)}
+.pb-field label small{font-weight:400;color:var(--ink-3,#6b768a);font-size:15px}
+.pb-field input,.pb-field select,.pb-field textarea{width:100%;min-height:48px;padding:11px 14px;border:1.5px solid #c4cdda;border-radius:12px;background:#fff;color:var(--ink,#14233b);font:16px/1.4 var(--body,var(--sans,system-ui))}
+.pb-field textarea{min-height:120px;resize:vertical}
+.pb-field input:focus,.pb-field select:focus,.pb-field textarea:focus{outline:3px solid rgba(43,79,128,.28);outline-offset:1px;border-color:var(--blue,#2b4f80)}
+.pb-field [aria-invalid="true"]{border-color:#b42318}
+.pb-hint,.pb-sec .pb-hint{margin:0;font-size:15px;line-height:1.5;color:var(--ink-3,#6b768a)}
+.pb-err,.pb-sec .pb-err{margin:0;padding:12px 14px;border-radius:12px;background:#fdecea;color:#7a1a12;font-size:16px}
+.pb-err:empty{display:none}
+.pb-err::before{content:"Couldn't send: ";font-weight:700}
+.pb-hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+.pb-form button[type=submit]{justify-self:start;min-height:48px}
+.pb-form button[disabled]{opacity:.65;cursor:progress}
+.pb-ok{background:#fff;border:1px solid var(--line,#dbe2ec);border-left:6px solid #1f7a4d;border-radius:18px;padding:clamp(22px,3vw,34px)}
+.pb-ok h2{margin:0 0 10px}
+.pb-ok .pb-ref{font:700 20px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;color:var(--ink,#14233b)}
+/* legal pages */
+.pb-prose{max-width:74ch}
+.pb-prose h2{margin:44px 0 12px;font-size:clamp(22px,2.2vw,28px)}
+.pb-prose h2:first-child{margin-top:0}
+.pb-prose ul{padding-left:22px;margin:0 0 14px}
+.pb-prose li{margin:4px 0}
+.pb-prose a{color:var(--blue,#2b4f80)}
+.pb-toc{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 36px;padding:0;list-style:none}
+.pb-toc a{color:var(--blue,#2b4f80);font-size:16px}
+.pb-meta{font-size:15px!important;color:var(--ink-3,#6b768a)!important}
+/* footer */
+footer.pbf{padding:56px 0 40px}
+.pbf-in{max-width:var(--wrap,1180px);margin:0 auto;padding:0 24px}
+.pbf-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+.pbf .brand{font-size:20px}
+.pbf-about p{margin:14px 0 0;max-width:36ch;font-size:15px;line-height:1.6}
+.pbf h2{margin:0 0 12px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:inherit;opacity:.75}
+.pbf ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.pbf a{color:inherit;text-decoration:none}
+.pbf ul a{display:inline-block;padding:8px 0;font-size:16px}
+.pbf a:hover{text-decoration:underline}
+.pbf-base{margin:36px 0 0;padding-top:20px;border-top:1px solid currentColor;border-color:rgba(127,140,160,.3);font-size:14px;opacity:.85}
+@media (max-width:900px){.pb-two{grid-template-columns:1fr}.pb-aside{position:static}.pbf-top{grid-template-columns:1fr 1fr}.pbf-about{grid-column:1/-1}}
+@media (max-width:560px){.pb-form{grid-template-columns:1fr}.pb-hero{padding:48px 0 28px}.pb-sec{padding:44px 0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top solid" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="PupilBook home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="../#modules">Features</a><a href="../#pricing">Pricing</a><a href="../#faq">Questions</a><a href="../about/">About</a><a href="https://demo.pupilbook.com">Try the demo</a></nav>
+    <a class="signin" href="https://app.pupilbook.com">Sign in</a>
+    <a class="btn btn-gold" href="../get-started/">Get started</a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg></button>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main" class="pb-page">
+<section class="pb-hero"><div class="pb-in"><p class="pb-eyebrow">Sales partners</p><h1>Help schools in your area move to PupilBook.</h1><p class="pb-lede">Do you know proprietors and head teachers in your town? Introduce them to PupilBook and help them get started.</p></div></section><section class="pb-sec"><div class="pb-in pb-two"><div><form class="pb-form" data-kind="partner" data-thanks="We'll be in touch to talk about the areas you cover and how the partnership works." novalidate><div class="pb-field full"><label for="f-name">Full name</label><input type="text" name="name" id="f-name" required data-label="full name" autocomplete="name" maxlength="120"></div><div class="pb-field"><label for="f-phone">Phone or WhatsApp <small>(optional)</small></label><input type="tel" name="phone" id="f-phone" autocomplete="tel" inputmode="tel" maxlength="120"></div><div class="pb-field"><label for="f-email">Email <small>(optional)</small></label><input type="email" name="email" id="f-email" autocomplete="email" maxlength="120"></div><p class="pb-hint full">Give a phone number or an email address, or both, so we can reply.</p><div class="pb-field full"><label for="f-town">Where are you based?</label><input type="text" name="town" id="f-town" required data-label="where are you based?" aria-describedby="f-town-h" maxlength="120"><p class="pb-hint" id="f-town-h">Town and region. Tell us which areas you cover.</p></div><div class="pb-field full"><label for="f-role">What do you do now? <small>(optional)</small></label><input type="text" name="role" id="f-role" aria-describedby="f-role-h" maxlength="120"><p class="pb-hint" id="f-role-h">For example: teacher, school supplier, sales agent.</p></div><div class="pb-field full"><label for="f-message">Why would you like to sell PupilBook?</label><textarea name="message" id="f-message" required data-label="why would you like to sell pupilbook?" aria-describedby="f-message-h" maxlength="2000"></textarea><p class="pb-hint" id="f-message-h">Tell us about the schools you know and any sales experience you have.</p></div><div class="pb-hp" aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div><p class="pb-err full" role="alert" tabindex="-1"></p><p class="pb-hint full">We use these details only to reply to you. See our <a href="../privacy/">privacy policy</a>.</p><div class="full"><button class="btn btn-gold" type="submit">Apply</button></div></form></div>
+<aside class="pb-aside pb-card"><h2 style="font-size:24px">Who we're looking for</h2><ul class="pb-steps" style="gap:12px">
+<li><span>✓</span><div>People trusted by school owners: teachers, school suppliers, GNAPS members and education officers.</div></li>
+<li><span>✓</span><div>Comfortable showing PupilBook on a phone and answering questions.</div></li>
+<li><span>✓</span><div>Able to visit schools in your area and follow up.</div></li>
+</ul><p class="pb-hint" style="margin-top:18px">We'll explain how the partnership works, including what you earn, when we speak.</p></aside>
+</div></section>
+</main>
+
+<footer class="pbf">
+  <div class="pbf-in">
+    <div class="pbf-top">
+      <div class="pbf-about"><a class="brand" href="../" aria-label="PupilBook home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a><p>School management for private basic schools in Ghana: fees, registers, report cards and texts to parents.</p><p><a href="mailto:hello@pupilbook.com">hello@pupilbook.com</a></p></div>
+      <div class="pbf-col"><h2>PupilBook</h2><ul><li><a href="../#modules">Features</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">Questions</a></li><li><a href="https://demo.pupilbook.com">Try the demo</a></li><li><a href="https://app.pupilbook.com">Sign in</a></li></ul></div><div class="pbf-col"><h2>Company</h2><ul><li><a href="../about/">About us</a></li><li><a href="../get-started/">Get started</a></li><li><a href="../partners/">Become a sales partner</a></li><li><a href="../#contact">Contact</a></li></ul></div><div class="pbf-col"><h2>Your data</h2><ul><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms of service</a></li><li><a href="../data-deletion/">Delete your data</a></li></ul></div>
+    </div>
+    <p class="pbf-base">© <span id="yr">2026</span> PupilBook. Photos from <a href="https://unsplash.com">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var top=document.getElementById("top"),btn=document.querySelector(".menu-btn"),nav=document.getElementById("nav");
+  if(!top.classList.contains("solid"))addEventListener("scroll",function(){top.classList.toggle("scrolled",scrollY>8);},{passive:true});
+  btn.addEventListener("click",function(){var o=nav.classList.toggle("open");btn.setAttribute("aria-expanded",String(o));btn.setAttribute("aria-label",o?"Close menu":"Open menu");});
+  nav.addEventListener("click",function(e){if(e.target.closest("a")){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Open menu");}});
+  document.getElementById("yr").textContent=new Date().getFullYear();
+})();
+
+/* Website forms: saved by public.submit_web_request and emailed to PupilBook. pupilbook.com sends to live; any
+   other address (previews, a local copy) sends to the pilot, so tests never reach live. */
+(function(){
+  var API=/(^|\.)pupilbook\.com$/.test(location.hostname)?["https://mwwrisrkmgvktyfdgqwf.supabase.co","sb_publishable_GQLz2mFYR7CgcG8l44eyCQ_5uvZm7Y0"]:["https://tyulqcuhnldnhieofdne.supabase.co","sb_publishable_cUNBe1fYbrhFUjvuNH330Q_pFHsoxkG"];
+  document.querySelectorAll("form[data-kind]").forEach(function(f){
+    var err=f.querySelector(".pb-err"),btn=f.querySelector("button[type=submit]"),label=btn.textContent;
+    function bad(el,msg){err.textContent=msg;if(el){el.setAttribute("aria-invalid","true");el.focus();}else err.focus();}
+    f.addEventListener("input",function(e){e.target.removeAttribute("aria-invalid");});
+    f.addEventListener("submit",function(e){e.preventDefault();err.textContent="";
+      var v={};f.querySelectorAll("[name]").forEach(function(el){v[el.name]=el.value.trim();});
+      for(var i=0,req=f.querySelectorAll("[required]");i<req.length;i++){if(!req[i].value.trim())return bad(req[i],"Please fill in "+req[i].dataset.label+".");}
+      if(!v.phone&&!v.email)return bad(f.querySelector("[name=phone]"),"Please give a phone number or an email address so we can reply.");
+      if(v.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email))return bad(f.querySelector("[name=email]"),"That email address does not look right.");
+      if(v.phone&&!/^\d{9,15}$/.test(v.phone.replace(/\D/g,"")))return bad(f.querySelector("[name=phone]"),"That phone number does not look right.");
+      v.page=location.pathname;btn.disabled=true;btn.textContent="Sending…";
+      var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort();},20000);
+      fetch(API[0]+"/rest/v1/rpc/submit_web_request",{method:"POST",headers:{"apikey":API[1],"Content-Type":"application/json"},
+        body:JSON.stringify({kind:f.dataset.kind,fields:v}),signal:ctl?ctl.signal:undefined})
+      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j&&j.message||"");return j;});})
+      .then(function(ref){clearTimeout(tm);
+        var ok=document.createElement("div");ok.className="pb-ok";ok.setAttribute("tabindex","-1");
+        ok.innerHTML='<h2>Thank you. We have your details.</h2><p>'+f.dataset.thanks+'</p><p>Your reference: <span class="pb-ref"></span></p><p class="pb-hint">If you need us sooner, email <a href="mailto:hello@pupilbook.com">hello@pupilbook.com</a> and quote the reference.</p>';
+        ok.querySelector(".pb-ref").textContent=String(ref);f.replaceWith(ok);ok.focus();})
+      .catch(function(x){clearTimeout(tm);btn.disabled=false;btn.textContent=label;
+        bad(null,x&&x.message&&!/fetch|network|abort/i.test(x.message)?x.message:"Check your internet connection and try again, or email hello@pupilbook.com.");});
+    });
+  });
+})();
+</script>
+</body>
+</html>
