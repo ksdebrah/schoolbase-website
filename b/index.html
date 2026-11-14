@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SchoolBase: the school office, in one calm system</title>
+<title>PupilBook: the school office, in one calm system</title>
 <meta name="description" content="Fees, registers, report cards, canteen and bus money, payroll and texts to parents for basic schools in Ghana. GH₵3 per pupil per term, every feature included.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z' fill='%232B4F80'/%3E%3Cpath d='M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z' fill='%235B7FB0'/%3E%3Ccircle cx='24' cy='6' r='3.5' fill='%23F0BF5A'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
@@ -295,6 +295,8 @@ footer a{text-decoration:none;color:#c1cde0}
   .fan .iphone:nth-child(1){transform:translateX(-100px) translateY(40px) rotate(-8deg)}
   .fan .iphone:nth-child(3){transform:translateX(100px) translateY(40px) rotate(8deg)}
 }
+.wm{white-space:nowrap}.wm-p{color:var(--wm-p,#2b4f80)}.wm-b{color:var(--wm-b,#b9860f)}
+.top:not(.solid) .wm,footer .wm{--wm-p:#b4cdf2;--wm-b:#f0bf5a}
 </style>
 <style id="sbx">
 /* Tablets and "Make it your own" (Nov 2026). Pictures are of the sample schools, taken from the app by tools/siteshots.py. */
@@ -348,11 +350,11 @@ footer a{text-decoration:none;color:#c1cde0}
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#main" aria-label="SchoolBase home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg>SchoolBase</a>
+    <a class="brand" href="#main" aria-label="PupilBook home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#day">A school day</a><a href="#ghana">Made for Ghana</a><a href="#modules">Features</a><a href="#yours">Your school</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a>
     </nav>
-    <a class="signin" href="https://agape-pilot.pages.dev">Sign in</a>
+    <a class="signin" href="https://app.pupilbook.com">Sign in</a>
     <a class="btn btn-gold" href="#contact">Book a demo</a>
     <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg></button>
   </div>
@@ -382,11 +384,11 @@ footer a{text-decoration:none;color:#c1cde0}
   <div class="wrap">
     <p class="eyebrow rv">A school day</p>
     <h2 class="h2 rv" id="day-h" style="--d:.06s">From the gate to the last fee, handled.</h2>
-    <p class="sub rv" style="--d:.12s">Scroll through a day at a school running SchoolBase. Every job happens in one place, and the head teacher can see it all.</p>
+    <p class="sub rv" style="--d:.12s">Scroll through a day at a school running PupilBook. Every job happens in one place, and the head teacher can see it all.</p>
     <div class="story-grid">
       <div class="steps" id="steps">
         <div class="rail" aria-hidden="true"><i></i></div>
-        <article class="step" data-shot="0" data-h="7" data-m="30"><time datetime="07:30">7:30</time><h3>Gates open</h3><p>Teachers sign in on their own phones. No computer lab, no queue for the office laptop.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" loading="lazy" alt="The SchoolBase home screen on a phone."></div><div class="homebar"></div></div></div></div></article>
+        <article class="step" data-shot="0" data-h="7" data-m="30"><time datetime="07:30">7:30</time><h3>Gates open</h3><p>Teachers sign in on their own phones. No computer lab, no queue for the office laptop.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-home.webp" width="600" height="1299" loading="lazy" alt="The PupilBook home screen on a phone."></div><div class="homebar"></div></div></div></div></article>
         <article class="step" data-shot="1" data-h="8" data-m="30"><time datetime="08:30">8:30</time><h3>Registers close</h3><p>A class register takes a minute. Parents of absent pupils get a text straight away.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-attend.webp" width="600" height="1299" loading="lazy" alt="The morning register on a phone."></div><div class="homebar"></div></div></div></div></article>
         <article class="step" data-shot="2" data-h="10" data-m="30"><time datetime="10:30">10:30</time><h3>Break</h3><p>Canteen and bus money is ticked off by class or route, with who collected it.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-daily.webp" width="600" height="1299" loading="lazy" alt="Canteen and transport payments on a phone."></div><div class="homebar"></div></div></div></div></article>
         <article class="step" data-shot="3" data-h="11" data-m="15"><time datetime="11:15">11:15</time><h3>A parent pays fees</h3><p>Cash or MoMo is recorded in seconds. The receipt prints or goes by WhatsApp, and the parent gets a text.</p><div class="m-shot"><div class="iphone"><div class="scr"><div class="sb"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#0b0b0b" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2" opacity=".5"/></svg></span></div><div class="island"></div><div class="view"><img src="img/p-fees.webp" width="600" height="1299" loading="lazy" alt="The fees page on a phone."></div><div class="homebar"></div></div></div></div></article>
@@ -468,9 +470,9 @@ footer a{text-decoration:none;color:#c1cde0}
 
 <section class="sbx" id="tablets" aria-labelledby="tab-h">
   <div class="sbx-in">
-    <div class="sbx-head"><p class="sbx-eyebrow">Tablets</p><h2 id="tab-h">On a tablet, too</h2><p>SchoolBase looks and works the same on a phone, a laptop or a tablet. A tablet on the bursar's desk keeps fees and receipts in view all day; one in a classroom or at the gate takes the register in seconds.</p></div>
+    <div class="sbx-head"><p class="sbx-eyebrow">Tablets</p><h2 id="tab-h">On a tablet, too</h2><p>PupilBook looks and works the same on a phone, a laptop or a tablet. A tablet on the bursar's desk keeps fees and receipts in view all day; one in a classroom or at the gate takes the register in seconds.</p></div>
     <div class="sbx-tabs">
-      <figure style="margin:0"><div class="sbx-tab"><img src="img/t-home.webp" width="1770" height="1230" loading="lazy" alt="SchoolBase on an iPad held sideways: the welcome banner, today's figures and a tile for every page."></div><figcaption class="sbx-cap">An iPad on its side: the full menu, as on a laptop.</figcaption></figure>
+      <figure style="margin:0"><div class="sbx-tab"><img src="img/t-home.webp" width="1770" height="1230" loading="lazy" alt="PupilBook on an iPad held sideways: the welcome banner, today's figures and a tile for every page."></div><figcaption class="sbx-cap">An iPad on its side: the full menu, as on a laptop.</figcaption></figure>
       <figure style="margin:0"><div class="sbx-tab up"><img src="img/t-attend.webp" width="1116" height="1700" loading="lazy" alt="The morning register on an iPad mini held upright, with Present, Late and Absent for each pupil."></div><figcaption class="sbx-cap">An iPad mini upright: the morning register.</figcaption></figure>
     </div>
     <ul class="sbx-list">
@@ -482,9 +484,9 @@ footer a{text-decoration:none;color:#c1cde0}
 </section>
 <section class="sbx sbx-alt" id="yours" aria-labelledby="yours-h">
   <div class="sbx-in">
-    <div class="sbx-head"><p class="sbx-eyebrow">Your school</p><h2 id="yours-h">Make it your own</h2><p>Every school gets the same complete system, set up the way it already works and dressed in its own crest, motto and colours. Here is our sample school in SchoolBase's own colours, and two more set up in green and in wine.</p></div>
+    <div class="sbx-head"><p class="sbx-eyebrow">Your school</p><h2 id="yours-h">Make it your own</h2><p>Every school gets the same complete system, set up the way it already works and dressed in its own crest, motto and colours. Here is our sample school in PupilBook's own colours, and two more set up in green and in wine.</p></div>
     <div class="sbx-schools">
-      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-schoolbase.webp" width="1770" height="1230" loading="lazy" alt="SchoolBase Academy's home page on an iPad, in SchoolBase blue and gold."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-schoolbase-signin.webp" width="600" height="1298" loading="lazy" alt="SchoolBase Academy's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>SchoolBase Academy</b><span>SchoolBase blue and gold, the standard look · open-book crest · “Learning made simple”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-schoolbase.webp" width="1770" height="1230" loading="lazy" alt="PupilBook Academy's home page on an iPad, in PupilBook blue and gold."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-schoolbase-signin.webp" width="600" height="1298" loading="lazy" alt="PupilBook Academy's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>PupilBook Academy</b><span>PupilBook blue and gold, the standard look · open-book crest · “Learning made simple”</span></figcaption></figure>
       <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-sunrise.webp" width="1770" height="1230" loading="lazy" alt="Sunrise School's home page on an iPad, in forest green and amber."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-sunrise-signin.webp" width="600" height="1298" loading="lazy" alt="Sunrise School's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>Sunrise School</b><span>Forest green and amber · rising-sun crest · “Rise and Shine”</span></figcaption></figure>
       <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-demo.webp" width="1770" height="1230" loading="lazy" alt="Bright Future School's home page on an iPad, in wine and gold."></div><div class="sbx-ph"><div class="sbx-iph"><div class="scr"><div class="bar"><span>9:41</span><i></i></div><span class="isl" aria-hidden="true"></span><img src="img/c-demo-signin.webp" width="600" height="1298" loading="lazy" alt="Bright Future School's own sign-in page on an iPhone."></div></div></div></div><figcaption><b>Bright Future School</b><span>Wine and gold · torch crest · “Light, Learning, Service”</span></figcaption></figure>
     </div>
@@ -499,10 +501,10 @@ footer a{text-decoration:none;color:#c1cde0}
           <li><b>Scores and report cards</b>: your class and exam split, grading key, positions or BECE aggregates, remarks and the head teacher's signature.</li>
         </ul></div>
       <div class="sbx-card"><h3>Need something only your school does?</h3>
-        <p class="sbx-p" style="font-size:16px;margin-top:8px">Tell us. There is one SchoolBase for every school, so your request goes one of three ways:</p>
+        <p class="sbx-p" style="font-size:16px;margin-top:8px">Tell us. There is one PupilBook for every school, so your request goes one of three ways:</p>
         <ol class="sbx-steps">
           <li><span>1</span><div><b>Already a setting.</b> We switch it on for you, free.</div></li>
-          <li><span>2</span><div><b>Useful to other schools too.</b> We build it into SchoolBase, and your school gets it first.</div></li>
+          <li><span>2</span><div><b>Useful to other schools too.</b> We build it into PupilBook, and your school gets it first.</div></li>
           <li><span>3</span><div><b>Truly yours alone</b>, such as a link to another system. We build it as an add-on, switched on for your school only, for an agreed one-off fee.</div></li>
         </ol></div>
     </div>
@@ -538,12 +540,12 @@ footer a{text-decoration:none;color:#c1cde0}
   <div class="wrap">
     <h2 class="h2 rv" id="faq-h" style="text-align:center">Questions schools ask</h2>
     <div class="faq">
-      <details><summary>Do we need computers?<span class="pm" aria-hidden="true"></span></summary><div class="ans">No. SchoolBase works in the web browser on any phone, tablet or computer. Most teachers use their own phones. A printer helps for receipts and report cards, but you can also share them by WhatsApp.</div></details>
+      <details><summary>Do we need computers?<span class="pm" aria-hidden="true"></span></summary><div class="ans">No. PupilBook works in the web browser on any phone, tablet or computer. Most teachers use their own phones. A printer helps for receipts and report cards, but you can also share them by WhatsApp.</div></details>
       <details><summary>Our internet is not reliable. Will it still work?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Yes. Registers, payments and scores save on the phone when the network drops and send by themselves when it comes back. The screen always shows whether everything has been sent.</div></details>
       <details><summary>Can we keep our own report card layout?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Yes. Send us a copy of your current report card and we set yours up to match, with your crest, colours, grading and comment banks.</div></details>
       <details><summary>How long does it take to start?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Setting up a school takes about a day once we have your lists. We recommend going live at the start of a term, with two weeks of training for the head teacher, bursar and one class teacher.</div></details>
       <details><summary>Can parents see their child's results?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Parents get texts for receipts, absences and reminders, and report cards can be sent to them by WhatsApp. A parent app is planned.</div></details>
-      <details><summary>What if we need help?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Every page has a help button, every role has its own user guide, and you can chat with our support team from inside SchoolBase or on WhatsApp.</div></details>
+      <details><summary>What if we need help?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Every page has a help button, every role has its own user guide, and you can chat with our support team from inside PupilBook or on WhatsApp.</div></details>
     </div>
   </div>
 </section>
@@ -552,8 +554,8 @@ footer a{text-decoration:none;color:#c1cde0}
   <div class="wrap">
     <div class="rv"><div class="photo"><img src="img/photo-smile.webp" width="800" height="1000" loading="lazy" alt="A smiling schoolboy in a check uniform with his school bag."></div><p class="credit">Photo: <a href="https://unsplash.com/photos/a-smiling-student-gives-the-peace-sign-x6QwI1GxbNg">David Geneugelijk</a> on Unsplash</p></div>
     <div>
-      <h2 class="rv" id="ct-h">See SchoolBase with your own school in it.</h2>
-      <p class="sub rv" style="--d:.08s">Book a free 30-minute demo. We'll show you your fees, registers and report cards in SchoolBase and answer every question your head teacher and bursar have.</p>
+      <h2 class="rv" id="ct-h">See PupilBook with your own school in it.</h2>
+      <p class="sub rv" style="--d:.08s">Book a free 30-minute demo. We'll show you your fees, registers and report cards in PupilBook and answer every question your head teacher and bursar have.</p>
       <div class="ways rv" id="ways" style="--d:.16s"></div>
     </div>
   </div>
@@ -562,15 +564,15 @@ footer a{text-decoration:none;color:#c1cde0}
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#main"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg>SchoolBase</a>
+    <a class="brand" href="#main"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg><span class="wm"><span class="wm-p">Pupil</span><span class="wm-b">Book</span></span></a>
     <span>School management for basic schools in Ghana. © <span id="yr">2026</span>. Photos from <a href="https://unsplash.com">Unsplash</a>.</span>
-    <nav aria-label="Footer"><a href="#day">A school day</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a><a href="#contact">Contact</a><a href="https://agape-pilot.pages.dev">Sign in</a></nav>
+    <nav aria-label="Footer"><a href="#day">A school day</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a><a href="#contact">Contact</a><a href="https://app.pupilbook.com">Sign in</a></nav>
   </div>
 </footer>
 
 <script>
 /* Contact details: fill these in before going live. Empty ones are not shown. */
-var CONTACT={whatsapp:"",phone:"",email:""};
+var CONTACT={whatsapp:"",phone:"",email:"hello@pupilbook.com"};
 (function(){
   var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s));};
