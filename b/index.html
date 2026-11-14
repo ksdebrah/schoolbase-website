@@ -296,6 +296,44 @@ footer a{text-decoration:none;color:#c1cde0}
   .fan .iphone:nth-child(3){transform:translateX(100px) translateY(40px) rotate(8deg)}
 }
 </style>
+<style id="sbx">
+/* Tablets and "Make it your own" (Nov 2026). Pictures are of the sample schools, taken from the app by tools/siteshots.py. */
+.sbx{padding:104px 0}
+.sbx-alt{background:var(--sbx-wash,#f3f6fa)}
+.sbx-in{max-width:1200px;margin:0 auto;padding:0 24px}
+.sbx-head{max-width:760px;margin:0 0 44px}
+.sbx-eyebrow{margin:0 0 10px;font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue,#2b4f80)}
+.sbx h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.015em;color:var(--ink,#14233b)}
+.sbx h3{margin:0 0 8px;font-family:var(--display);font-size:21px;line-height:1.25;color:var(--ink,#14233b)}
+.sbx-head p,.sbx p.sbx-p{margin:16px 0 0;font-size:18px;line-height:1.6;color:var(--ink-2,#46536a)}
+.sbx-tabs{display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
+.sbx-tab{position:relative;background:#16181d;border-radius:clamp(14px,2vw,26px);padding:clamp(8px,1.1vw,14px);box-shadow:0 30px 60px -28px rgba(12,26,50,.45),inset 0 0 0 1px rgba(255,255,255,.08)}
+.sbx-tab img{display:block;width:100%;height:auto;border-radius:clamp(6px,.8vw,10px)}
+.sbx-tab::after{content:"";position:absolute;top:50%;right:calc(clamp(8px,1.1vw,14px)/2 - 2px);width:4px;height:4px;margin-top:-2px;border-radius:50%;background:#3a3d44}
+.sbx-tab.up::after{top:calc(clamp(8px,1.1vw,14px)/2 - 2px);right:50%;margin:0 -2px 0 0}
+.sbx-cap{margin:14px 0 0;font-size:15px;color:var(--ink-3,#6b768a);text-align:center}
+.sbx-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}
+.sbx-list li{position:relative;padding-left:28px;font-size:16px;line-height:1.5;color:var(--ink-2,#46536a)}
+.sbx-list li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--blue,#2b4f80) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.5l4.5-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.sbx-list b{color:var(--ink,#14233b)}
+.sbx-schools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.sbx-school{margin:0}
+.sbx-shot{position:relative;padding:0 0 18% 0}
+.sbx-shot .sbx-tab{width:88%}
+.sbx-ph{position:absolute;right:0;bottom:0;width:30%;background:#16181d;border-radius:clamp(12px,1.6vw,20px);padding:clamp(4px,.5vw,6px);box-shadow:0 18px 36px -16px rgba(12,26,50,.5)}
+.sbx-ph img{display:block;width:100%;height:auto;border-radius:clamp(9px,1.2vw,15px)}
+.sbx-school figcaption{margin-top:16px}
+.sbx-school figcaption b{display:block;font-size:18px;color:var(--ink,#14233b)}
+.sbx-school figcaption span{display:block;font-size:15px;color:var(--ink-3,#6b768a)}
+.sbx-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);margin-top:64px}
+.sbx-card{background:#fff;border:1px solid var(--line,#dbe2ec);border-radius:16px;padding:28px}
+.sbx-card .sbx-list{grid-template-columns:1fr;margin-top:16px}
+.sbx-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
+.sbx-steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;font-size:16px;line-height:1.5;color:var(--ink-2,#46536a)}
+.sbx-steps li span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold,#f0bf5a);color:#14233b;font:700 15px/1 system-ui,sans-serif}
+.sbx-steps b{color:var(--ink,#14233b)}
+@media (max-width:900px){.sbx{padding:72px 0}.sbx-tabs,.sbx-cols{grid-template-columns:1fr}.sbx-tabs .sbx-tab.up{max-width:420px;margin:0 auto}.sbx-list{grid-template-columns:1fr}.sbx-schools{grid-template-columns:1fr;max-width:560px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -304,7 +342,7 @@ footer a{text-decoration:none;color:#c1cde0}
   <div class="wrap">
     <a class="brand" href="#main" aria-label="SchoolBase home"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13 Q15 9 24 14 L24 41 Q15 36 5 39 Z" fill="#5B7FB0"/><path d="M43 13 Q33 9 24 14 L24 41 Q33 36 43 39 Z" fill="#9CC0F0"/><circle cx="24" cy="6" r="3.5" fill="#F0BF5A"/></svg>SchoolBase</a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#day">A school day</a><a href="#ghana">Made for Ghana</a><a href="#modules">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a>
+      <a href="#day">A school day</a><a href="#ghana">Made for Ghana</a><a href="#modules">Features</a><a href="#yours">Your school</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a>
     </nav>
     <a class="signin" href="https://agape-pilot.pages.dev">Sign in</a>
     <a class="btn btn-gold" href="#contact">Book a demo</a>
@@ -420,6 +458,48 @@ footer a{text-decoration:none;color:#c1cde0}
   </div>
 </section>
 
+<section class="sbx" id="tablets" aria-labelledby="tab-h">
+  <div class="sbx-in">
+    <div class="sbx-head"><p class="sbx-eyebrow">Tablets</p><h2 id="tab-h">On a tablet, too</h2><p>SchoolBase looks and works the same on a phone, a laptop or a tablet. A tablet on the bursar's desk keeps fees and receipts in view all day; one in a classroom or at the gate takes the register in seconds.</p></div>
+    <div class="sbx-tabs">
+      <figure style="margin:0"><div class="sbx-tab"><img src="img/t-home.webp" width="1600" height="1000" loading="lazy" alt="SchoolBase on a 10-inch tablet held sideways: the welcome banner, today's figures and a tile for every page."></div><figcaption class="sbx-cap">A 10-inch tablet on its side: the full menu, as on a laptop.</figcaption></figure>
+      <figure style="margin:0"><div class="sbx-tab up"><img src="img/t-attend.webp" width="1000" height="1600" loading="lazy" alt="The morning register on an 8-inch tablet held upright, with Present, Late and Absent for each pupil."></div><figcaption class="sbx-cap">An 8-inch tablet upright: the morning register.</figcaption></figure>
+    </div>
+    <ul class="sbx-list">
+      <li><b>Nothing to install.</b> It runs in the web browser, and keeps working when the internet drops.</li>
+      <li><b>Budget tablets are enough.</b> Any recent Android tablet, 8 or 10 inches, does the job.</li>
+      <li><b>A tablet package is coming.</b> Tablets set up for you and locked to your school, with a quick sign-in for staff who share one.</li>
+    </ul>
+  </div>
+</section>
+<section class="sbx sbx-alt" id="yours" aria-labelledby="yours-h">
+  <div class="sbx-in">
+    <div class="sbx-head"><p class="sbx-eyebrow">Your school</p><h2 id="yours-h">Make it your own</h2><p>Every school gets the same complete system, set up the way it already works and dressed in its own crest, motto and colours. Here are three of our sample schools.</p></div>
+    <div class="sbx-schools">
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-schoolbase.webp" width="1600" height="1000" loading="lazy" alt="SchoolBase Academy's home page in blue and gold, with its open-book crest."></div><div class="sbx-ph"><img src="img/c-schoolbase-signin.webp" width="600" height="1298" loading="lazy" alt="SchoolBase Academy's own sign-in page on a phone."></div></div><figcaption><b>SchoolBase Academy</b><span>Blue and gold · open-book crest · “Learning made simple”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-sunrise.webp" width="1600" height="1000" loading="lazy" alt="Sunrise School's home page in teal and coral, with a rising-sun crest."></div><div class="sbx-ph"><img src="img/c-sunrise-signin.webp" width="600" height="1298" loading="lazy" alt="Sunrise School's own sign-in page on a phone."></div></div><figcaption><b>Sunrise School</b><span>Teal and coral · rising-sun crest · “Rise and Shine”</span></figcaption></figure>
+      <figure class="sbx-school"><div class="sbx-shot"><div class="sbx-tab"><img src="img/c-hillview.webp" width="1600" height="1000" loading="lazy" alt="Hillview Academy's home page in navy and sky blue, with a hills crest."></div><div class="sbx-ph"><img src="img/c-hillview-signin.webp" width="600" height="1298" loading="lazy" alt="Hillview Academy's own sign-in page on a phone."></div></div><figcaption><b>Hillview Academy</b><span>Navy and sky · hills crest · “Climb Higher”</span></figcaption></figure>
+    </div>
+    <div class="sbx-cols">
+      <div class="sbx-card"><h3>What we set up for your school</h3>
+        <ul class="sbx-list">
+          <li><b>Crest, name and motto</b> on every screen, receipt and report card. No crest yet? Pick a ready-made one.</li>
+          <li><b>Your colours</b>, or one of six ready-made themes. We check every colour stays easy to read.</li>
+          <li><b>Your own sign-in page</b> and a private school code, so staff only ever see your school.</li>
+          <li><b>Classes and streams</b> named your way: Basic, Class or Primary; 4A, 4B and so on.</li>
+          <li><b>Fees, canteen and bus</b> rates, scholarships and term bills.</li>
+          <li><b>Scores and report cards</b>: your class and exam split, grading key, positions or BECE aggregates, remarks and the head teacher's signature.</li>
+        </ul></div>
+      <div class="sbx-card"><h3>Need something only your school does?</h3>
+        <p class="sbx-p" style="font-size:16px;margin-top:8px">Tell us. There is one SchoolBase for every school, so your request goes one of three ways:</p>
+        <ol class="sbx-steps">
+          <li><span>1</span><div><b>Already a setting.</b> We switch it on for you, free.</div></li>
+          <li><span>2</span><div><b>Useful to other schools too.</b> We build it into SchoolBase, and your school gets it first.</div></li>
+          <li><span>3</span><div><b>Truly yours alone</b>, such as a link to another system. We build it as an add-on, switched on for your school only, for an agreed one-off fee.</div></li>
+        </ol></div>
+    </div>
+  </div>
+</section>
 <section class="sec" id="pricing" aria-labelledby="pr-h">
   <div class="wrap">
     <div class="price rv">
